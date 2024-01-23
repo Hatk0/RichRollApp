@@ -20,6 +20,8 @@ class CartViewController: UIViewController {
     lazy var collectionView: UICollectionView = {
         let layout = createLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.dataSource = self
+        collectionView.register(CartCollectionViewCell.self, forCellWithReuseIdentifier: CartCollectionViewCell.identifier)
         collectionView.showsVerticalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -101,7 +103,6 @@ class CartViewController: UIViewController {
     private func setupView() {
         overrideUserInterfaceStyle = .dark
         
-        setupCollectionView()
         calculateAndSetContentSize()
     }
     
@@ -211,5 +212,36 @@ class CartViewController: UIViewController {
     @objc
     func orderButtonTapped() {
         print("Кнопка заказа нажата!")
+    }
+}
+
+// MARK: - Extensions
+
+extension CartViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        section < viewModel.cartItems.count ? viewModel.cartItems[section].count : .zero
+    }
+        
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CartCollectionViewCell.identifier, for: indexPath)
+
+        if let catalogItem = viewModel.getCartItem(at: indexPath), let cartCell = cell as? CartCollectionViewCell {
+            cartCell.configuration(model: catalogItem)
+
+            cartCell.minusButtonAction = { [weak self, weak cartCell] in
+                if let self = self, let cartCell = cartCell, let indexPath = collectionView.indexPath(for: cartCell) {
+                    self.removeItem(at: indexPath)
+                }
+            }
+
+            cartCell.backgroundColor = UIColor(red: 0.09, green: 0.09, blue: 0.11, alpha: 1.00)
+        }
+
+        return cell
+    }
+    
+    func removeItem(at indexPath: IndexPath) {
+        viewModel.removeFromCart(at: indexPath)
+        collectionView.deleteItems(at: [indexPath])
     }
 }

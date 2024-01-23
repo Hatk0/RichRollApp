@@ -76,15 +76,8 @@ class StocksCollectionViewCell: UICollectionViewCell {
     // MARK: - Configuration
 
     func configuration(model: StocksModel) {
-        self.image.image = UIImage(named: model.image)
-        self.titleLabel.text = model.title
-        self.descriptionLabel.text = model.description
-    }
-        
-    // MARK: - Reuse
-        
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        self.image.image = nil
+        image.image = UIImage(named: model.image)
+        titleLabel.text = model.title
+        descriptionLabel.text = model.description
     }
 }
