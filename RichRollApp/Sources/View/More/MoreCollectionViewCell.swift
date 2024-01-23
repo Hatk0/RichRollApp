@@ -2,7 +2,7 @@ import UIKit
 
 class MoreCollectionViewCell: UICollectionViewCell {
     
-    static let identifier = "MoreCollectionViewCell"
+    let identifier = MoreCollectionViewCell.identifier
     
     // MARK: - UI
     
@@ -63,14 +63,7 @@ class MoreCollectionViewCell: UICollectionViewCell {
     // MARK: - Configuration
     
     func configuration(model: MoreModel) {
-        self.image.image = UIImage(named: model.image)
-        self.titleLabel.text = model.title
-    }
-    
-    // MARK: - Reuse
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        self.image.image = nil
+        image.image = UIImage(named: model.image)
+        titleLabel.text = model.title
     }
 }

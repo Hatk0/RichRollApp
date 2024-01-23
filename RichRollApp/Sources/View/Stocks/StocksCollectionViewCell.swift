@@ -2,32 +2,28 @@ import UIKit
 
 class StocksCollectionViewCell: UICollectionViewCell {
     
-    static let identifier = "StocksCollectionViewCell"
+    let identifier = StocksCollectionViewCell.identifier
     
     // MARK: - UI
     
     lazy var image: UIImageView = {
-        let image = UIImageView()
-        image.contentMode = .scaleAspectFill
-        image.clipsToBounds = true
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
+        return makeImageView(contentMode: .scaleAspectFill, clipsToBounds: true)
     }()
         
     lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 20)
-        label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+        return makeLabel(withText: "",
+                         font: .boldSystemFont(ofSize: 20),
+                         textColor: nil,
+                         numberOfLines: 0,
+                         textAlignment: nil)
     }()
         
     lazy var descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 12, weight: .regular)
-        label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+        return makeLabel(withText: "",
+                         font: .systemFont(ofSize: 12, weight: .regular),
+                         textColor: nil,
+                         numberOfLines: 0,
+                         textAlignment: nil)
     }()
         
     // MARK: - Initalizers
@@ -76,15 +72,8 @@ class StocksCollectionViewCell: UICollectionViewCell {
     // MARK: - Configuration
 
     func configuration(model: StocksModel) {
-        self.image.image = UIImage(named: model.image)
-        self.titleLabel.text = model.title
-        self.descriptionLabel.text = model.description
-    }
-        
-    // MARK: - Reuse
-        
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        self.image.image = nil
+        image.image = UIImage(named: model.image)
+        titleLabel.text = model.title
+        descriptionLabel.text = model.description
     }
 }

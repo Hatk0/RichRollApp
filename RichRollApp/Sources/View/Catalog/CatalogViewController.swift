@@ -22,6 +22,10 @@ class CatalogViewController: UIViewController {
     lazy var collectionView: UICollectionView = {
         let layout = createLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(CatalogCollectionViewCell.self, forCellWithReuseIdentifier: CatalogCollectionViewCell.identifier)
+        collectionView.register(RichRollCellHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: RichRollCellHeader.identifier)
         collectionView.showsVerticalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
@@ -44,7 +48,7 @@ class CatalogViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
         
         setupSearchBar()
-        setupCollectionView()
+        filteredItems = catalogItems.flatMap { $0 }
     }
     
     private func setupHierarchy() {
@@ -110,5 +114,89 @@ class CatalogViewController: UIViewController {
                 return layoutSection
             }
         }
+    }
+}
+
+// MARK: - Extensions
+
+extension CatalogViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(CatalogViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
+extension CatalogViewController: UICollectionViewDataSource {
+
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return sectionTitles.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        let sectionItems = filteredItems(inSection: section)
+        return sectionItems.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CatalogCollectionViewCell.identifier, for: indexPath) as? CatalogCollectionViewCell else {
+            fatalError("Unable to dequeue CatalogCollectionViewCell")
+        }
+        
+        configureCell(cell, at: indexPath)
+        cell.backgroundColor = UIColor(red: 0.09, green: 0.09, blue: 0.11, alpha: 1.00)
+        
+        return cell
+    }
+    
+    private func configureCell(_ cell: CatalogCollectionViewCell, at indexPath: IndexPath) {
+        let sectionItems = filteredItems(inSection: indexPath.section)
+        let catalogItem = sectionItems[indexPath.item]
+        
+        cell.configuration(model: catalogItem)
+    }
+}
+
+extension CatalogViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: RichRollCellHeader.identifier, for: indexPath) as? RichRollCellHeader {
+            let sectionTitleIndex = min(indexPath.section, sectionTitles.count - 1)
+            header.titleLabel.text = sectionTitles[sectionTitleIndex]
+            return header
+        }
+        
+        return UICollectionReusableView()
+    }
+
+    func filteredItems(inSection section: Int) -> [CatalogModel] {
+        guard section < catalogItems.count && section < sectionTitles.count else {
+            return []
+        }
+
+        let searchText = searchBar.text?.lowercased() ?? ""
+        
+        if searchText.isEmpty {
+            return catalogItems[section]
+        } else {
+            let filteredSectionItems = catalogItems[section].filter {
+                $0.title.localizedCaseInsensitiveContains(searchText)
+            }
+            return filteredSectionItems.isEmpty ? [] : filteredSectionItems
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailViewController = DetailViewController()
+        let selectedCatalogItem = filteredItems(inSection: indexPath.section)[indexPath.item]
+        detailViewController.viewModel.selectedCatalogItem = selectedCatalogItem
+
+        detailViewController.modalPresentationStyle = .fullScreen
+        present(detailViewController, animated: true, completion: nil)
     }
 }

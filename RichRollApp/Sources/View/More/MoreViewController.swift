@@ -61,6 +61,9 @@ class MoreViewController: UIViewController {
     lazy var collectionView: UICollectionView = {
         let layout = createLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(MoreCollectionViewCell.self, forCellWithReuseIdentifier: MoreCollectionViewCell.identifier)
         collectionView.isScrollEnabled = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
@@ -80,7 +83,6 @@ class MoreViewController: UIViewController {
     
     private func setupView() {
         overrideUserInterfaceStyle = .dark
-        setupCollectionView()
     }
     
     private func setupHierarchy() {
@@ -203,5 +205,36 @@ class MoreViewController: UIViewController {
         let menu = UIMenu(title: "", children: [editProfile, leave, deleteAccount])
         menuItemButton.menu = menu
         dotsButton.menu = menu
+    }
+}
+
+// MARK: - Extensions
+
+extension MoreViewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return viewModel.numberOfSections()
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.items(for: section).count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreCollectionViewCell.identifier, for: indexPath) as? MoreCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+
+        if let moreItem = viewModel.item(at: indexPath) {
+            cell.configuration(model: moreItem)
+            cell.backgroundColor = UIColor(red: 0.09, green: 0.09, blue: 0.11, alpha: 1.00)
+        }
+
+        return cell
+    }
+}
+
+extension MoreViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
     }
 }

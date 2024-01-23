@@ -7,70 +7,69 @@ class CartViewController: UIViewController {
     // MARK: - UI
     
     lazy var clearButton: UIButton = {
-        let button = UIButton(type: .roundedRect)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
-        button.setTitle("Очистить корзину", for: .normal)
-        button.setImage(UIImage(systemName: "trash"), for: .normal)
-        button.tintColor = .systemGray3
-        button.addTarget(self, action: #selector(clearButtonTapped), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+        return makeButton(backgroundColor: .clear,
+                          titleFont: UIFont.systemFont(ofSize: 18),
+                          cornerRadius: nil,
+                          image: UIImage(systemName: "trash"),
+                          tintColor: .systemGray3,
+                          title: "Очистить корзину",
+                          target: self,
+                          action: #selector(clearButtonTapped),
+                          for: .touchUpInside)
     }()
     
     lazy var collectionView: UICollectionView = {
         let layout = createLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.dataSource = self
+        collectionView.register(CartCollectionViewCell.self, forCellWithReuseIdentifier: CartCollectionViewCell.identifier)
         collectionView.showsVerticalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
         return collectionView
     }()
     
     lazy var orderButton: UIButton = {
-        let button = UIButton(type: .roundedRect)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
-        button.setTitle("Оформить заказ", for: .normal)
-        button.tintColor = .black
-        button.backgroundColor = .systemYellow
-        button.addTarget(self, action: #selector(orderButtonTapped), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+        return makeButton(backgroundColor: .systemYellow,
+                          titleFont: UIFont.systemFont(ofSize: 18),
+                          cornerRadius: nil,
+                          image: nil,
+                          tintColor: .black,
+                          title: "Оформить заказ",
+                          target: self,
+                          action: #selector(orderButtonTapped),
+                          for: .touchUpInside)
     }()
     
     lazy var sumLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = .white
-        label.text = "Сумма заказа: \(viewModel.calculateTotalPrice())"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+        return makeLabel(withText: "Сумма заказа: \(viewModel.calculateTotalPrice())",
+                         font: .systemFont(ofSize: 16),
+                         textColor: .white,
+                         numberOfLines: 0,
+                         textAlignment: nil)
     }()
     
     lazy var deliveryLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = .white
-        label.text = "Доставка: \(viewModel.deliveryCost)"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+        return makeLabel(withText: "Доставка: \(viewModel.deliveryCost)",
+                         font: .systemFont(ofSize: 16),
+                         textColor: .white,
+                         numberOfLines: 0,
+                         textAlignment: nil)
     }()
 
     lazy var serviceChargeLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = .white
-        label.text = "Сервисный сбор: \(viewModel.serviceCharge)"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+        return makeLabel(withText: "Сервисный сбор: \(viewModel.serviceCharge)",
+                         font: .systemFont(ofSize: 16),
+                         textColor: .white,
+                         numberOfLines: 0,
+                         textAlignment: nil)
     }()
 
     lazy var totalLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.textColor = .white
-        label.text = "Итого: \(viewModel.calculateTotalPrice())"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+        return makeLabel(withText: "Итого: \(viewModel.calculateTotalPrice())",
+                         font: .boldSystemFont(ofSize: 18),
+                         textColor: .white,
+                         numberOfLines: 0,
+                         textAlignment: nil)
     }()
     
     lazy var emptyView: EmptyView = {
@@ -101,7 +100,6 @@ class CartViewController: UIViewController {
     private func setupView() {
         overrideUserInterfaceStyle = .dark
         
-        setupCollectionView()
         calculateAndSetContentSize()
     }
     
@@ -211,5 +209,36 @@ class CartViewController: UIViewController {
     @objc
     func orderButtonTapped() {
         print("Кнопка заказа нажата!")
+    }
+}
+
+// MARK: - Extensions
+
+extension CartViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        section < viewModel.cartItems.count ? viewModel.cartItems[section].count : .zero
+    }
+        
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CartCollectionViewCell.identifier, for: indexPath)
+
+        if let catalogItem = viewModel.getCartItem(at: indexPath), let cartCell = cell as? CartCollectionViewCell {
+            cartCell.configuration(model: catalogItem)
+
+            cartCell.minusButtonAction = { [weak self, weak cartCell] in
+                if let self = self, let cartCell = cartCell, let indexPath = collectionView.indexPath(for: cartCell) {
+                    self.removeItem(at: indexPath)
+                }
+            }
+
+            cartCell.backgroundColor = UIColor(red: 0.09, green: 0.09, blue: 0.11, alpha: 1.00)
+        }
+
+        return cell
+    }
+    
+    func removeItem(at indexPath: IndexPath) {
+        viewModel.removeFromCart(at: indexPath)
+        collectionView.deleteItems(at: [indexPath])
     }
 }
