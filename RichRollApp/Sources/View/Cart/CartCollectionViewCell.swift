@@ -6,7 +6,7 @@ class CartCollectionViewCell: UICollectionViewCell {
     
     var quantity: Int = 1 {
         didSet {
-            quantityLabel.text = "\(quantity)"
+            quantityLabel.text = "\(String(quantity))"
         }
     }
     
@@ -15,56 +15,55 @@ class CartCollectionViewCell: UICollectionViewCell {
     // MARK: - UI
     
     lazy var image: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+        return makeImageView(contentMode: .scaleAspectFit, clipsToBounds: true)
     }()
     
     lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 16)
-        label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+        return makeLabel(withText: "",
+                         font: .boldSystemFont(ofSize: 16),
+                         textColor: nil,
+                         numberOfLines: 0,
+                         textAlignment: nil)
     }()
     
     lazy var priceLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 17, weight: .heavy)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+        return makeLabel(withText: "",
+                         font: .systemFont(ofSize: 17, weight: .heavy),
+                         textColor: nil,
+                         numberOfLines: 0,
+                         textAlignment: nil)
     }()
     
     lazy var minusButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "minus"), for: .normal)
-        button.tintColor = .white
-        button.backgroundColor = .systemGray5
-        button.layer.cornerRadius = 15
-        button.addTarget(self, action: #selector(minusButtonTapped), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+        return makeButton(backgroundColor: .systemGray5,
+                          titleFont: nil,
+                          cornerRadius: 15,
+                          image: UIImage(systemName: "minus"),
+                          tintColor: .white,
+                          title: nil,
+                          target: self,
+                          action: #selector(minusButtonTapped),
+                          for: .touchUpInside)
     }()
     
     lazy var quantityLabel: UILabel = {
-        let label = UILabel()
-        label.text = "\(quantity)"
-        label.font = .systemFont(ofSize: 17, weight: .heavy)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+        return makeLabel(withText: "\(quantity)",
+                         font: .systemFont(ofSize: 17, weight: .heavy),
+                         textColor: nil,
+                         numberOfLines: 0,
+                         textAlignment: nil)
     }()
     
     lazy var plusButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "plus"), for: .normal)
-        button.tintColor = .white
-        button.backgroundColor = .systemGray5
-        button.layer.cornerRadius = 15
-        button.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+        return makeButton(backgroundColor: .systemGray5,
+                          titleFont: nil,
+                          cornerRadius: 15,
+                          image: UIImage(systemName: "plus"),
+                          tintColor: .white,
+                          title: nil,
+                          target: self,
+                          action: #selector(plusButtonTapped),
+                          for: .touchUpInside)
     }()
     
     // MARK: - Initializers

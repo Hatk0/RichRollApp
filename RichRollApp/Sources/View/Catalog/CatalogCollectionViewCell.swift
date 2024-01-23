@@ -7,37 +7,35 @@ class CatalogCollectionViewCell: UICollectionViewCell {
     // MARK: - UI
     
     lazy var image: UIImageView = {
-       let image = UIImageView()
-        image.contentMode = .scaleAspectFit
-        image.clipsToBounds = true
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
+        return makeImageView(contentMode: .scaleAspectFit, clipsToBounds: true)
     }()
     
     lazy var titleLabel: UILabel = {
-       let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 15)
-        label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+        return makeLabel(withText: "",
+                         font: .boldSystemFont(ofSize: 15),
+                         textColor: nil,
+                         numberOfLines: 0,
+                         textAlignment: nil)
     }()
     
     lazy var descriptionLabel: UILabel = {
-       let label = UILabel()
-        label.font = .systemFont(ofSize: 12, weight: .regular)
-        label.numberOfLines = 2
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+        return makeLabel(withText: "",
+                         font: .systemFont(ofSize: 12, weight: .regular),
+                         textColor: nil,
+                         numberOfLines: 2,
+                         textAlignment: nil)
     }()
     
     lazy var priceButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .systemGray5
-        button.titleLabel?.font = .boldSystemFont(ofSize: 12)
-        button.layer.cornerRadius = 10
-        button.clipsToBounds = true
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+        return makeButton(backgroundColor: .systemGray5,
+                          titleFont: .boldSystemFont(ofSize: 12),
+                          cornerRadius: 10,
+                          image: nil,
+                          tintColor: nil,
+                          title: "",
+                          target: nil,
+                          action: nil,
+                          for: .touchUpInside)
     }()
     
     // MARK: - Initializers

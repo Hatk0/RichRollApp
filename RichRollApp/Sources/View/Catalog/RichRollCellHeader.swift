@@ -7,11 +7,11 @@ class RichRollCellHeader: UICollectionReusableView {
     // MARK: - UI
     
     lazy var titleLabel: UILabel = {
-       let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 15)
-        label.textColor = .darkGray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+        return makeLabel(withText: "",
+                         font: .boldSystemFont(ofSize: 15),
+                         textColor: .darkGray,
+                         numberOfLines: 0,
+                         textAlignment: nil)
     }()
     
     // MARK: - Initalizers

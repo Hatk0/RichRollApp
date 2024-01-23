@@ -7,13 +7,11 @@ class OrdersViewController: UIViewController {
     // MARK: - UI
     
     private lazy var ordersLabel: UILabel = {
-       let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 20)
-        label.textAlignment = .center
-        label.text = viewModel.getOrdersLabelText()
-        label.numberOfLines = 2
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+        return makeLabel(withText: "\(viewModel.getOrdersLabelText())",
+                         font: .boldSystemFont(ofSize: 20),
+                         textColor: nil,
+                         numberOfLines: 2,
+                         textAlignment: .center)
     }()
     
     // MARK: - Lifecycle

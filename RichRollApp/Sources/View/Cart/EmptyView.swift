@@ -5,14 +5,11 @@ class EmptyView: UIView {
     // MARK: - UI
     
     lazy var messageLabel: UILabel = {
-        let label = UILabel()
-        label.text = "В корзине пока нет еды.\nСовсем. Нет. Еды"
-        label.font = .boldSystemFont(ofSize: 20)
-        label.textColor = .white
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+        return makeLabel(withText: "В корзине пока нет еды.\nСовсем. Нет. Еды",
+                         font: .boldSystemFont(ofSize: 20),
+                         textColor: .white,
+                         numberOfLines: 0,
+                         textAlignment: .center)
     }()
     
     // MARK: - Initializers

@@ -7,46 +7,47 @@ class DetailViewController: UIViewController {
     // MARK: - UI
     
     private lazy var loveButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "star"), for: .normal)
-        button.tintColor = .systemYellow
-        button.clipsToBounds = true
-        button.addTarget(self, action: #selector(loveButtonTapped), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+        return makeButton(backgroundColor: .clear,
+                          titleFont: nil,
+                          cornerRadius: nil,
+                          image: UIImage(systemName: "star"),
+                          tintColor: .systemYellow,
+                          title: "",
+                          target: self,
+                          action: #selector(loveButtonTapped),
+                          for: .touchUpInside)
     }()
     
     private lazy var imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
+        return makeImageView(contentMode: .scaleAspectFit, clipsToBounds: true)
     }()
     
     private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 25)
-        label.textColor = .white
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+        return makeLabel(withText: "",
+                         font: .boldSystemFont(ofSize: 25),
+                         textColor: .white,
+                         numberOfLines: 0,
+                         textAlignment: nil)
     }()
     
     private lazy var priceButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .systemGray5
-        button.titleLabel?.font = .boldSystemFont(ofSize: 18)
-        button.clipsToBounds = true
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+        return makeButton(backgroundColor: .systemGray5,
+                          titleFont: .boldSystemFont(ofSize: 18),
+                          cornerRadius: nil,
+                          image: nil,
+                          tintColor: nil,
+                          title: "",
+                          target: nil,
+                          action: nil,
+                          for: .touchUpInside)
     }()
     
     private lazy var descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .secondaryLabel
-        label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+        return makeLabel(withText: "",
+                         font: .systemFont(ofSize: 14),
+                         textColor: .secondaryLabel,
+                         numberOfLines: 0,
+                         textAlignment: nil)
     }()
     
     // MARK: - Lifecycle
