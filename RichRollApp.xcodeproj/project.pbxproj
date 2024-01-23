@@ -37,10 +37,8 @@
 		73A656E02B486058009F55F1 /* StocksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A656DF2B486058009F55F1 /* StocksCollectionViewCell.swift */; };
 		73A656E22B48694B009F55F1 /* StocksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A656E12B48694B009F55F1 /* StocksModel.swift */; };
 		73B2F5B52B4F1971007E1A69 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B2F5B42B4F1971007E1A69 /* DetailViewController.swift */; };
-		73B2F5B72B4F1B83007E1A69 /* DetailViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B2F5B62B4F1B83007E1A69 /* DetailViewController+Ext.swift */; };
 		73E7AA9E2B4C0C0200B109DF /* CatalogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7AA9D2B4C0C0200B109DF /* CatalogCollectionViewCell.swift */; };
 		73E7AAA02B4C31AD00B109DF /* RichRollCellHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7AA9F2B4C31AD00B109DF /* RichRollCellHeader.swift */; };
-		73EC49782B4AFB7F00238964 /* CatalogViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EC49772B4AFB7F00238964 /* CatalogViewController+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,10 +74,8 @@
 		73A656DF2B486058009F55F1 /* StocksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksCollectionViewCell.swift; sourceTree = "<group>"; };
 		73A656E12B48694B009F55F1 /* StocksModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksModel.swift; sourceTree = "<group>"; };
 		73B2F5B42B4F1971007E1A69 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		73B2F5B62B4F1B83007E1A69 /* DetailViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewController+Ext.swift"; sourceTree = "<group>"; };
 		73E7AA9D2B4C0C0200B109DF /* CatalogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogCollectionViewCell.swift; sourceTree = "<group>"; };
 		73E7AA9F2B4C31AD00B109DF /* RichRollCellHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichRollCellHeader.swift; sourceTree = "<group>"; };
-		73EC49772B4AFB7F00238964 /* CatalogViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CatalogViewController+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,7 +206,6 @@
 			isa = PBXGroup;
 			children = (
 				7315B9382B4DA11D00C82171 /* Helpers */,
-				73EC49762B4AFB6200238964 /* Extensions */,
 				73A656D12B483B4F009F55F1 /* Model */,
 				73A656D02B483B44009F55F1 /* View */,
 				73A656CE2B483B29009F55F1 /* ViewModel */,
@@ -252,15 +247,6 @@
 				734B4F0F2B497A00009C0600 /* MoreModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		73EC49762B4AFB6200238964 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				73EC49772B4AFB7F00238964 /* CatalogViewController+Ext.swift */,
-				73B2F5B62B4F1B83007E1A69 /* DetailViewController+Ext.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,9 +324,7 @@
 				7315B9372B4D9C7F00C82171 /* CatalogViewController+SearchBar.swift in Sources */,
 				73B2F5B52B4F1971007E1A69 /* DetailViewController.swift in Sources */,
 				733535B52B4F2A56005982D1 /* StocksViewModel.swift in Sources */,
-				73EC49782B4AFB7F00238964 /* CatalogViewController+Ext.swift in Sources */,
 				7315B92B2B4D8B5F00C82171 /* CatalogViewModel.swift in Sources */,
-				73B2F5B72B4F1B83007E1A69 /* DetailViewController+Ext.swift in Sources */,
 				733535B72B4F2A76005982D1 /* StocksViewController+CollectionView.swift in Sources */,
 				7315B9402B4DA90A00C82171 /* MoreViewController+CollectionView.swift in Sources */,
 				73A656DD2B485475009F55F1 /* TabBarController.swift in Sources */,

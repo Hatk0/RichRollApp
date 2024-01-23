@@ -1,11 +1,11 @@
 import UIKit
 
 extension CatalogViewController: UICollectionViewDataSource {
-    
+
     func setupCollectionView() {
-        self.collectionView.delegate = self
-        self.collectionView.dataSource = self
-        self.registerCells()
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        registerCells()
         filteredItems = catalogItems.flatMap { $0 }
     }
     
