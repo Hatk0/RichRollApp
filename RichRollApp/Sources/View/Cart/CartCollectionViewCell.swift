@@ -125,13 +125,15 @@ class CartCollectionViewCell: UICollectionViewCell {
 
     @objc
     func plusButtonTapped() {
-        print("Кнопка плюс нажата!")
-        if quantity < 100 {
-            quantity += 1
-            quantityLabel.text = "\(quantity)"
+        guard quantity < 100 else {
+            return
         }
+        
+        print("Кнопка плюс нажата!")
+        quantity += 1
+        quantityLabel.text = "\(quantity)"
     }
-    
+
     // MARK: - Configuration
     
     func configuration(model: CatalogModel) {
