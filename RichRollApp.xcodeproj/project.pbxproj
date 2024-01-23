@@ -34,6 +34,7 @@
 		73A656E22B48694B009F55F1 /* StocksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A656E12B48694B009F55F1 /* StocksModel.swift */; };
 		73B2F5B52B4F1971007E1A69 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B2F5B42B4F1971007E1A69 /* DetailViewController.swift */; };
 		73C49CCD2B5FEFEF0083A91C /* makeViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C49CCC2B5FEFEF0083A91C /* makeViews.swift */; };
+		73C49CD02B6006B00083A91C /* UICollectionViewCell+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C49CCF2B6006B00083A91C /* UICollectionViewCell+Ext.swift */; };
 		73E7AA9E2B4C0C0200B109DF /* CatalogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7AA9D2B4C0C0200B109DF /* CatalogCollectionViewCell.swift */; };
 		73E7AAA02B4C31AD00B109DF /* RichRollCellHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7AA9F2B4C31AD00B109DF /* RichRollCellHeader.swift */; };
 /* End PBXBuildFile section */
@@ -68,6 +69,7 @@
 		73A656E12B48694B009F55F1 /* StocksModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksModel.swift; sourceTree = "<group>"; };
 		73B2F5B42B4F1971007E1A69 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		73C49CCC2B5FEFEF0083A91C /* makeViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = makeViews.swift; sourceTree = "<group>"; };
+		73C49CCF2B6006B00083A91C /* UICollectionViewCell+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Ext.swift"; sourceTree = "<group>"; };
 		73E7AA9D2B4C0C0200B109DF /* CatalogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogCollectionViewCell.swift; sourceTree = "<group>"; };
 		73E7AA9F2B4C31AD00B109DF /* RichRollCellHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichRollCellHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -219,6 +221,7 @@
 		73A656D02B483B44009F55F1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				73C49CCE2B6006A10083A91C /* Extensions */,
 				73C49CCB2B5FEFD90083A91C /* Functions */,
 				7315B92F2B4D95FB00C82171 /* Catalog */,
 				7315B9302B4D960C00C82171 /* Stocks */,
@@ -246,6 +249,14 @@
 				73C49CCC2B5FEFEF0083A91C /* makeViews.swift */,
 			);
 			path = Functions;
+			sourceTree = "<group>";
+		};
+		73C49CCE2B6006A10083A91C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				73C49CCF2B6006B00083A91C /* UICollectionViewCell+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,6 +347,7 @@
 				73A656E22B48694B009F55F1 /* StocksModel.swift in Sources */,
 				73A560772B506377009F90A6 /* EmptyView.swift in Sources */,
 				7315B93E2B4DA87B00C82171 /* MoreViewModel.swift in Sources */,
+				73C49CD02B6006B00083A91C /* UICollectionViewCell+Ext.swift in Sources */,
 				733535B92B4F40EA005982D1 /* OrdersViewModel.swift in Sources */,
 				73A656D92B484706009F55F1 /* CartViewController.swift in Sources */,
 				73A656B82B483A55009F55F1 /* AppDelegate.swift in Sources */,

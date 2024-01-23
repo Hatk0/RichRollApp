@@ -2,7 +2,7 @@ import UIKit
 
 class StocksCollectionViewCell: UICollectionViewCell {
     
-    static let identifier = "StocksCollectionViewCell"
+    let identifier = StocksCollectionViewCell.identifier
     
     // MARK: - UI
     

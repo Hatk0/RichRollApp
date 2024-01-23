@@ -2,7 +2,7 @@ import UIKit
 
 class MoreCollectionViewCell: UICollectionViewCell {
     
-    static let identifier = "MoreCollectionViewCell"
+    let identifier = MoreCollectionViewCell.identifier
     
     // MARK: - UI
     

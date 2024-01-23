@@ -2,7 +2,7 @@ import UIKit
 
 class CartCollectionViewCell: UICollectionViewCell {
     
-    static let identifier = "CartCollectionViewCell"
+    let identifier = CartCollectionViewCell.identifier
     
     var quantity: Int = 1 {
         didSet {

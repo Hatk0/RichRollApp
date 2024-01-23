@@ -2,7 +2,7 @@ import UIKit
 
 class CatalogCollectionViewCell: UICollectionViewCell {
     
-    static let identifier = "CatalogCollectionViewCell"
+    let identifier = CatalogCollectionViewCell.identifier
     
     // MARK: - UI
     
