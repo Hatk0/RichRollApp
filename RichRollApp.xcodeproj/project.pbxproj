@@ -88,12 +88,12 @@
 		7315B92F2B4D95FB00C82171 /* Catalog */ = {
 			isa = PBXGroup;
 			children = (
+				73CE92E42B77C75F00CFB424 /* ViewModel */,
 				73CE92E12B77C67200CFB424 /* Model */,
 				73A656BB2B483A55009F55F1 /* CatalogViewController.swift */,
 				7315B9362B4D9C7F00C82171 /* CatalogViewController+SearchBar.swift */,
 				73E7AA9D2B4C0C0200B109DF /* CatalogCollectionViewCell.swift */,
 				73E7AA9F2B4C31AD00B109DF /* RichRollCellHeader.swift */,
-				733535B32B4F24ED005982D1 /* Detail */,
 			);
 			path = Catalog;
 			sourceTree = "<group>";
@@ -101,6 +101,7 @@
 		7315B9302B4D960C00C82171 /* Stocks */ = {
 			isa = PBXGroup;
 			children = (
+				73CE92E52B77C76D00CFB424 /* ViewModel */,
 				73CE92E22B77C67A00CFB424 /* Model */,
 				73A656D42B4846D3009F55F1 /* StocksViewController.swift */,
 				73A656DF2B486058009F55F1 /* StocksCollectionViewCell.swift */,
@@ -111,6 +112,7 @@
 		7315B9312B4D961B00C82171 /* Orders */ = {
 			isa = PBXGroup;
 			children = (
+				73CE92E62B77C77E00CFB424 /* ViewModel */,
 				73A656D62B4846EB009F55F1 /* OrdersViewController.swift */,
 			);
 			path = Orders;
@@ -119,6 +121,7 @@
 		7315B9322B4D962000C82171 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				73CE92E82B77C79900CFB424 /* ViewModel */,
 				73CE92E32B77C68100CFB424 /* Model */,
 				73A656DA2B48471B009F55F1 /* MoreViewController.swift */,
 				734B4F112B497E57009C0600 /* MoreCollectionViewCell.swift */,
@@ -129,6 +132,7 @@
 		7315B9332B4D962C00C82171 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
+				73CE92E72B77C78800CFB424 /* ViewModel */,
 				73A656D82B484706009F55F1 /* CartViewController.swift */,
 				733535BC2B4F47F6005982D1 /* CartCollectionViewCell.swift */,
 				73A560762B506377009F90A6 /* EmptyView.swift */,
@@ -147,6 +151,7 @@
 		733535B32B4F24ED005982D1 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				73CE92E92B77C7AE00CFB424 /* ViewModel */,
 				73B2F5B42B4F1971007E1A69 /* DetailViewController.swift */,
 			);
 			path = Detail;
@@ -202,22 +207,8 @@
 			children = (
 				7315B9382B4DA11D00C82171 /* Helpers */,
 				73A656D02B483B44009F55F1 /* View */,
-				73A656CE2B483B29009F55F1 /* ViewModel */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		73A656CE2B483B29009F55F1 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				7315B92A2B4D8B5F00C82171 /* CatalogViewModel.swift */,
-				733535B12B4F24E3005982D1 /* DetailViewModel.swift */,
-				733535B42B4F2A56005982D1 /* StocksViewModel.swift */,
-				733535B82B4F40EA005982D1 /* OrdersViewModel.swift */,
-				733535BA2B4F43E0005982D1 /* CartViewModel.swift */,
-				7315B93D2B4DA87B00C82171 /* MoreViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		73A656D02B483B44009F55F1 /* View */ = {
@@ -226,6 +217,7 @@
 				73C49CCE2B6006A10083A91C /* Extensions */,
 				73C49CCB2B5FEFD90083A91C /* Functions */,
 				7315B92F2B4D95FB00C82171 /* Catalog */,
+				733535B32B4F24ED005982D1 /* Detail */,
 				7315B9302B4D960C00C82171 /* Stocks */,
 				7315B9312B4D961B00C82171 /* Orders */,
 				7315B9332B4D962C00C82171 /* Cart */,
@@ -273,6 +265,54 @@
 				734B4F0F2B497A00009C0600 /* More.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		73CE92E42B77C75F00CFB424 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7315B92A2B4D8B5F00C82171 /* CatalogViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		73CE92E52B77C76D00CFB424 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				733535B42B4F2A56005982D1 /* StocksViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		73CE92E62B77C77E00CFB424 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				733535B82B4F40EA005982D1 /* OrdersViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		73CE92E72B77C78800CFB424 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				733535BA2B4F43E0005982D1 /* CartViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		73CE92E82B77C79900CFB424 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7315B93D2B4DA87B00C82171 /* MoreViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		73CE92E92B77C7AE00CFB424 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				733535B12B4F24E3005982D1 /* DetailViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
