@@ -4,13 +4,11 @@ class EmptyView: UIView {
     
     // MARK: - UI
     
-    lazy var messageLabel: UILabel = {
-        return makeLabel(withText: "В корзине пока нет еды.\nСовсем. Нет. Еды",
-                         font: .boldSystemFont(ofSize: 20),
-                         textColor: .white,
-                         numberOfLines: 0,
-                         textAlignment: .center)
-    }()
+    private lazy var messageLabel = ReusableLabel(text: "В корзине пока нет еды.\nСовсем. Нет. Еды",
+                                                  font: .boldSystemFont(ofSize: 20),
+                                                  textColor: .white,
+                                                  numberOfLines: 0,
+                                                  textAlignment: .center)
     
     // MARK: - Initializers
     

@@ -11,7 +11,7 @@ class CatalogViewController: UIViewController {
     
     // MARK: - UI
     
-    lazy var searchBar: UISearchBar = {
+    private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "Поиск"
         searchBar.searchBarStyle = .minimal
@@ -19,7 +19,7 @@ class CatalogViewController: UIViewController {
         return searchBar
     }()
     
-    lazy var collectionView: UICollectionView = {
+    private lazy var collectionView: UICollectionView = {
         let layout = createLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.delegate = self
@@ -198,5 +198,31 @@ extension CatalogViewController: UICollectionViewDelegate {
 
         detailViewController.modalPresentationStyle = .fullScreen
         present(detailViewController, animated: true, completion: nil)
+    }
+}
+
+extension CatalogViewController: UISearchBarDelegate {
+    
+    func setupSearchBar() {
+        self.searchBar.delegate = self
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchForItem(with: searchText)
+    }
+    
+    func searchForItem(with searchText: String) {
+        print("Текст для поиска: \(searchText)")
+        
+        if searchText.isEmpty {
+            filteredItems = catalogItems.flatMap { $0 }
+        } else {
+            filteredItems = catalogItems.flatMap { $0 }.filter {
+                $0.title.localizedCaseInsensitiveContains(searchText)
+            }
+        }
+        print("Количество отфильтрованных элементов: \(filteredItems.count)")
+        
+        collectionView.reloadData()
     }
 }

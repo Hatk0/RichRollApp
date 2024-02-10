@@ -36,4 +36,3 @@ final class CatalogViewModel {
         return selectedItem
     }
 }
-

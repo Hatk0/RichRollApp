@@ -6,19 +6,17 @@ class CartViewController: UIViewController {
     
     // MARK: - UI
     
-    lazy var clearButton: UIButton = {
-        return makeButton(backgroundColor: .clear,
-                          titleFont: UIFont.systemFont(ofSize: 18),
-                          cornerRadius: nil,
-                          image: UIImage(systemName: "trash"),
-                          tintColor: .systemGray3,
-                          title: "Очистить корзину",
-                          target: self,
-                          action: #selector(clearButtonTapped),
-                          for: .touchUpInside)
-    }()
+    private lazy var clearButton = ReusableButton(backgroundColor: .clear,
+                                                  titleFont: UIFont.systemFont(ofSize: 18),
+                                                  cornerRadius: nil,
+                                                  image: UIImage(systemName: "trash"),
+                                                  tintColor: .systemGray3,
+                                                  title: "Очистить корзину",
+                                                  target: self,
+                                                  action: #selector(clearButtonTapped),
+                                                  controlEvents: .touchUpInside)
     
-    lazy var collectionView: UICollectionView = {
+    private lazy var collectionView: UICollectionView = {
         let layout = createLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.dataSource = self
@@ -28,58 +26,48 @@ class CartViewController: UIViewController {
         return collectionView
     }()
     
-    lazy var orderButton: UIButton = {
-        return makeButton(backgroundColor: .systemYellow,
-                          titleFont: UIFont.systemFont(ofSize: 18),
-                          cornerRadius: nil,
-                          image: nil,
-                          tintColor: .black,
-                          title: "Оформить заказ",
-                          target: self,
-                          action: #selector(orderButtonTapped),
-                          for: .touchUpInside)
-    }()
+    private lazy var orderButton: UIButton = ReusableButton(backgroundColor: .systemYellow,
+                                                            titleFont: UIFont.systemFont(ofSize: 18),
+                                                            cornerRadius: nil,
+                                                            image: nil,
+                                                            tintColor: .black,
+                                                            title: "Оформить заказ",
+                                                            target: self,
+                                                            action: #selector(orderButtonTapped),
+                                                            controlEvents: .touchUpInside)
     
-    lazy var sumLabel: UILabel = {
-        return makeLabel(withText: "Сумма заказа: \(viewModel.calculateTotalPrice())",
-                         font: .systemFont(ofSize: 16),
-                         textColor: .white,
-                         numberOfLines: 0,
-                         textAlignment: nil)
-    }()
+    private lazy var sumLabel: UILabel = ReusableLabel(text: "Сумма заказа: \(viewModel.calculateTotalPrice())",
+                                                       font: .systemFont(ofSize: 16),
+                                                       textColor: .white,
+                                                       numberOfLines: 0,
+                                                       textAlignment: nil)
     
-    lazy var deliveryLabel: UILabel = {
-        return makeLabel(withText: "Доставка: \(viewModel.deliveryCost)",
-                         font: .systemFont(ofSize: 16),
-                         textColor: .white,
-                         numberOfLines: 0,
-                         textAlignment: nil)
-    }()
+    private lazy var deliveryLabel = ReusableLabel(text: "Доставка: \(viewModel.deliveryCost)",
+                                                   font: .systemFont(ofSize: 16),
+                                                   textColor: .white,
+                                                   numberOfLines: 0,
+                                                   textAlignment: nil)
 
-    lazy var serviceChargeLabel: UILabel = {
-        return makeLabel(withText: "Сервисный сбор: \(viewModel.serviceCharge)",
-                         font: .systemFont(ofSize: 16),
-                         textColor: .white,
-                         numberOfLines: 0,
-                         textAlignment: nil)
-    }()
+    private lazy var serviceChargeLabel = ReusableLabel(text: "Сервисный сбор: \(viewModel.serviceCharge)",
+                                                        font: .systemFont(ofSize: 16),
+                                                        textColor: .white,
+                                                        numberOfLines: 0,
+                                                        textAlignment: nil)
 
-    lazy var totalLabel: UILabel = {
-        return makeLabel(withText: "Итого: \(viewModel.calculateTotalPrice())",
-                         font: .boldSystemFont(ofSize: 18),
-                         textColor: .white,
-                         numberOfLines: 0,
-                         textAlignment: nil)
-    }()
+    private lazy var totalLabel = ReusableLabel(text: "Итого: \(viewModel.calculateTotalPrice())",
+                                                font: .boldSystemFont(ofSize: 18),
+                                                textColor: .white,
+                                                numberOfLines: 0,
+                                                textAlignment: nil)
     
-    lazy var emptyView: EmptyView = {
+    private lazy var emptyView: EmptyView = {
         let emptyView = EmptyView()
         emptyView.translatesAutoresizingMaskIntoConstraints = false
         emptyView.isHidden = !Catalog.catalogArray.isEmpty
         return emptyView
     }()
 
-    lazy var scrollView: UIScrollView = {
+    private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView

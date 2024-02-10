@@ -6,49 +6,39 @@ class DetailViewController: UIViewController {
     
     // MARK: - UI
     
-    private lazy var loveButton: UIButton = {
-        return makeButton(backgroundColor: .clear,
-                          titleFont: nil,
-                          cornerRadius: nil,
-                          image: UIImage(systemName: "star"),
-                          tintColor: .systemYellow,
-                          title: "",
-                          target: self,
-                          action: #selector(loveButtonTapped),
-                          for: .touchUpInside)
-    }()
+    private lazy var loveButton = ReusableButton(backgroundColor: .clear,
+                                                 titleFont: nil,
+                                                 cornerRadius: nil,
+                                                 image: UIImage(systemName: "star"),
+                                                 tintColor: .systemYellow,
+                                                 title: "",
+                                                 target: self,
+                                                 action: #selector(loveButtonTapped),
+                                                 controlEvents: .touchUpInside)
     
-    private lazy var imageView: UIImageView = {
-        return makeImageView(contentMode: .scaleAspectFit, clipsToBounds: true)
-    }()
+    private lazy var imageView = ReusableImage(contentMode: .scaleAspectFit, clipsToBounds: true)
     
-    private lazy var titleLabel: UILabel = {
-        return makeLabel(withText: "",
-                         font: .boldSystemFont(ofSize: 25),
-                         textColor: .white,
-                         numberOfLines: 0,
-                         textAlignment: nil)
-    }()
+    private lazy var titleLabel = ReusableLabel(text: "",
+                                                font: .boldSystemFont(ofSize: 25),
+                                                textColor: .white,
+                                                numberOfLines: 0,
+                                                textAlignment: nil)
     
-    private lazy var priceButton: UIButton = {
-        return makeButton(backgroundColor: .systemGray5,
-                          titleFont: .boldSystemFont(ofSize: 18),
-                          cornerRadius: nil,
-                          image: nil,
-                          tintColor: nil,
-                          title: "",
-                          target: nil,
-                          action: nil,
-                          for: .touchUpInside)
-    }()
+    private lazy var priceButton = ReusableButton(backgroundColor: .systemGray5,
+                                                  titleFont: .boldSystemFont(ofSize: 18),
+                                                  cornerRadius: nil,
+                                                  image: nil,
+                                                  tintColor: nil,
+                                                  title: "",
+                                                  target: nil,
+                                                  action: nil,
+                                                  controlEvents: .touchUpInside)
     
-    private lazy var descriptionLabel: UILabel = {
-        return makeLabel(withText: "",
-                         font: .systemFont(ofSize: 14),
-                         textColor: .secondaryLabel,
-                         numberOfLines: 0,
-                         textAlignment: nil)
-    }()
+    private lazy var descriptionLabel = ReusableLabel(text: "",
+                                                      font: .systemFont(ofSize: 14),
+                                                      textColor: .secondaryLabel,
+                                                      numberOfLines: 0,
+                                                      textAlignment: nil)
     
     // MARK: - Lifecycle
     

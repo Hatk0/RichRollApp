@@ -6,25 +6,19 @@ class StocksCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI
     
-    lazy var image: UIImageView = {
-        return makeImageView(contentMode: .scaleAspectFill, clipsToBounds: true)
-    }()
+    private lazy var image = ReusableImage(contentMode: .scaleAspectFill, clipsToBounds: true)
+    
+    private lazy var titleLabel = ReusableLabel(text: "",
+                                                font: .boldSystemFont(ofSize: 20),
+                                                textColor: nil,
+                                                numberOfLines: 0,
+                                                textAlignment: nil)
         
-    lazy var titleLabel: UILabel = {
-        return makeLabel(withText: "",
-                         font: .boldSystemFont(ofSize: 20),
-                         textColor: nil,
-                         numberOfLines: 0,
-                         textAlignment: nil)
-    }()
-        
-    lazy var descriptionLabel: UILabel = {
-        return makeLabel(withText: "",
-                         font: .systemFont(ofSize: 12, weight: .regular),
-                         textColor: nil,
-                         numberOfLines: 0,
-                         textAlignment: nil)
-    }()
+    private lazy var descriptionLabel = ReusableLabel(text: "",
+                                                      font: .systemFont(ofSize: 12, weight: .regular),
+                                                      textColor: nil,
+                                                      numberOfLines: 0,
+                                                      textAlignment: nil)
         
     // MARK: - Initalizers
         
