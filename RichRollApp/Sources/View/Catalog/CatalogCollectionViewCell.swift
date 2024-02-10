@@ -82,7 +82,7 @@ class CatalogCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Configuration
     
-    func configuration(model: CatalogModel) {
+    func configuration(model: Catalog) {
         image.image = UIImage(named: model.image)
         titleLabel.text = model.title
         descriptionLabel.text = model.description

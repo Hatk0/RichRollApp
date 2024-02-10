@@ -1,7 +1,7 @@
 import Foundation
 
 final class DetailViewModel {
-    var selectedCatalogItem: CatalogModel?
+    var selectedCatalogItem: Catalog?
     
     var image: String {
         return selectedCatalogItem?.image ?? ""

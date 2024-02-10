@@ -2,7 +2,7 @@ import Foundation
 
 final class CartViewModel {
     
-    var cartItems: [[CatalogModel]] = CatalogModel.catalogArray
+    var cartItems: [[Catalog]] = Catalog.catalogArray
     
     var isCartEmpty: Bool {
         return cartItems.isEmpty
@@ -24,7 +24,7 @@ final class CartViewModel {
         return "\(serviceCharge) руб."
     }
     
-    func addToCart(item: CatalogModel) {
+    func addToCart(item: Catalog) {
         cartItems.append([item])
     }
     
@@ -39,7 +39,7 @@ final class CartViewModel {
         }
     }
     
-    func getCartItem(at indexPath: IndexPath) -> CatalogModel? {
+    func getCartItem(at indexPath: IndexPath) -> Catalog? {
         guard indexPath.section < cartItems.count, indexPath.item < cartItems[indexPath.section].count else {
             return nil
         }

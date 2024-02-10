@@ -135,7 +135,7 @@ class CartCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Configuration
     
-    func configuration(model: CatalogModel) {
+    func configuration(model: Catalog) {
         image.image = UIImage(named: model.image)
         titleLabel.text = model.title
         priceLabel.text = model.price

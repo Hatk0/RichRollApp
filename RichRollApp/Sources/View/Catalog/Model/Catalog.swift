@@ -1,71 +1,71 @@
 import Foundation
 
-struct CatalogModel: Hashable {
+struct Catalog: Hashable {
     var image: String
     var title: String
     var description: String
     var price: String
 }
 
-extension CatalogModel {
+extension Catalog {
     static var catalogArray = [
         
         // Форель. Погружение
         [
-            CatalogModel(
+            Catalog(
                 image: "orlandorory",
                 title: "Орландо рору",
                 description: "Ролл с тартаром из слабосоленной форели и тунца; сливочный сыр, авокадо, огурец, лимонный конфи в бордовом масаго, с икрой палтуса и соусом васаби юдзу",
                 price: "598 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "shiodzuki",
                 title: "Шиодзуки",
                 description: "форель слабосоленная, рис, васаби, кресс-салат, цедра лимона",
                 price: "119 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "shiodzukicalifornia",
                 title: "Шиодзуки Калифорния",
                 description: "Мясо краба, гуакамоле из авокадо, суси рис, в слайсах слабосоленной форели, икра палтуса (7 шт.)",
                 price: "677 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "shiodzukitamagoroll",
                 title: "Шиодзуки тамаго ролл",
                 description: "обжаренный в темпуре ролл: копченный угорь, слабосоленная форель, сливочный сыр, авакадо, в маменори и тамаго. Сервируется с цитрусовым соусом «Спайси»",
                 price: "597 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "bostonrory",
                 title: "Бостон рору",
                 description: "спайси угорь, авакадо, огурец, васаби, нори, рис, тартар из слабосоленной форели с майонезом и юдзу, трюфельное масло, кунжут, кресс-салат (7 шт.)",
                 price: "597 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "nagoyarory",
                 title: "Нагоя рору",
                 description: "Теплый темпура-ролл: слабосоленая форель, спайси угорь, снежный краб, масаго, авокадо, под соусом из голубого сыра, с луком фри и тобико (6 шт.)",
                 price: "609 ₽"),
-            CatalogModel(
+            Catalog(
                 image: "fykyamasushi",
                 title: "Фукуяма суши",
                 description: "слабосоленая форель, гуакамоле из авокадо, суси рис, спайси соус, на обжаренных нори «васаби» (3 шт.)",
                 price: "357 ₽"
             ),
-             CatalogModel(
+             Catalog(
                 image: "сaesarshiodzuki",
                 title: "Салат «Цезарь шиодзуки»",
                 description: "слабосоленая форель, салат романо, шеф-соус «Цезарь»», подпеченные крутоны из белого хлеба, пармезан",
                 price: "597 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "cheesesoup",
                 title: "Сырный суп с брускеттой шиодзуки",
                 description: "сливочно-сырный суп с добавлением голубого сыра, приправленный острым маслом и черным перцем; брускетта с рийетом из форели горячего копчения со сливочным сыром и укропом",
                 price: "457 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "bruschettawithforel",
                 title: "Брускетты с форелью горячего копчения",
                 description: "хрустящие тосты из пшеничного багета, риет из форели горячего копчения и слабосоленой форели, зерновая горчица, сливочный сыр, лук-шалот, каперсы, икра палтуса (3 шт.)",
@@ -75,37 +75,37 @@ extension CatalogModel {
         
         // Онигири
         [
-            CatalogModel(
+            Catalog(
                 image: "onigiricalifornia",
                 title: "Онигири Калифорния",
                 description: "мясо краба, суси рис, авокадо, сливочный сыр, свежие огурцы, оранжевое тобико, нори",
                 price: "377 ₽"
             ),
-             CatalogModel(
+             Catalog(
                 image: "onigirifiladelfia",
                 title: "Онигири Филадельфия",
                 description: "лосось «спайси», суси рис, сливочный сыр, огурцы свежие, черное тобико с кунжутом, нори",
                 price: "377 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "onigirimarygo",
                 title: "Онигири Магуро",
                 description: "тунец, суси рис, трюфельная паста, свежие огурцы, авокадо, белый кунжут, нори",
                 price: "377 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "onigiridragon",
                 title: "Онигири Дракон",
                 description: "копченый угорь «спайси», суси рис, авокадо, сливочный сыр, бордовая масаго, нори",
                 price: "377 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "onigirishiodzuki",
                 title: "Онигири Шиодзуки",
                 description: "слабосоленая форель, суси рис, свежие огурцы, бордовая масаго, нори",
                 price: "377 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "onigirimaryaki",
                 title: "Онигири Маруяки",
                 description: "форель горячего копчения, суси рис, сливочный сыр, свежий огурец, тартар соус, зеленая масаго, нори",
@@ -115,175 +115,175 @@ extension CatalogModel {
         
         // Роллы
         [
-            CatalogModel(
+            Catalog(
                 image: "filadelfiaprime",
                 title: "Филадельфия Прайм",
                 description: "ролл в слайсах лосося, сыр, авокадо, рис для суси, нори, васаби (8 шт.)",
                 price: "580 ₽"
             ),
-             CatalogModel(
+             Catalog(
                 image: "oritsymaki",
                 title: "О рицу маки",
                 description: "лосось, красная икра, сыр, рис для суси, нори, васаби (6 шт.)",
                 price: "725 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "richrolls",
                 title: "РичРолл",
                 description: "ролл в слайсах тунца и лосося, спайси угорь, сыр, огурец, авокадо, снежный краб, рис для суси, нори, масаго, васаби (8 шт.)",
                 price: "663 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "filadelfia",
                 title: "Филадельфия",
                 description: "лосось, огурец, сыр, зеленый лук, рис для суси, нори, кунжут, тобико, васаби (8 шт.)",
                 price: "652 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "california",
                 title: "Калифорния",
                 description: "мясо краба, огурец, авокадо, рис для суси, нори, тобико, васаби (8 шт.)",
                 price: "663 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "ynagicalifornia",
                 title: "Унаги Филадельфия",
                 description: "копченый угорь, сыр, спайси лосось «Бури», авокадо, тобико, тамаго, рис для суси, нори, васаби (6 шт.)",
                 price: "663 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "syakedeluxe",
                 title: "Сякэ де люкс",
                 description: "лосось, авокадо, сыр, кунжут, рис для суси, нори. «Спайси»: гребешок, угорь, тунец, креветки, лосось, краб. Угорь с куриным филе, креветка с авокадо, васаби (8 шт.)",
                 price: "684 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "losangeles",
                 title: "Лос-Анджелес",
                 description: "тигровые креветки в темпуре, лосось в соусе «спайси», авокадо,рис для суси, мамэнори, тобико, соус «Динамит», васаби (6 шт.)",
                 price: "673 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "dragonrory",
                 title: "Дракон рору",
                 description: "копченый угорь,авокадо, сыр, темпурная крошка, масаго, рис для суси, нори, соус «Унаги», васаби (7 шт.)",
                 price: "725 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "taigarory",
                 title: "Тайга рору",
                 description: "опаленный лосось, копченый угорь, масаго, темпурная крошка, рис для суси, нори, тамаго, огурец, васаби (7 шт.)",
                 price: "684 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "salmoncaramel",
                 title: "Ролл Лосось-карамель",
                 description: "карамелизированный лосось с морской солью, сыром, копченым угрем с соусом «Спайси», рис для суси, нори, масаго и тамаго, васаби (8 шт.)",
                 price: "621 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "bluecheeseroll",
                 title: "Блю чиз ролл",
                 description: "запеченный лосось, копченый угорь, огурец, сыр, соус из голубого сыра, рис для суси, нори, васаби (7 шт.)",
                 price: "611 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "osakamaki",
                 title: "Осака маки",
                 description: "лосось, сыр, огурец, рис для суси, нори, васаби (6шт.)",
                 price: "684 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "aidahomaki",
                 title: "Айдахо маки",
                 description: "снежный краб, авокадо, огурец, рис для суси, нори, масаго, васаби (8 шт.)",
                 price: "517 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "balimaki",
                 title: "Бали маки",
                 description: "тигровые креветки в рисовой панировке, обжаренный лосось, манго, тобико, рис для суси, нори, соус «Унаги», васаби (7 шт.)",
                 price: "704 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "kiotorory",
                 title: "Киото рору",
                 description: "лосось, сыр, рис для суси, нори, красная икра, васаби (8 шт.)",
                 price: "475 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "ninjarory",
                 title: "Нидзя рору",
                 description: "копченый угорь, лосось, огурец, сыр, тамаго, рис для суси, нори, масаго, васаби (8 шт.)",
                 price: "475 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "paradiserory",
                 title: "Парадайз рору",
                 description: "лосось, красная икра, сыр, авокадо,рис для суси, масаго, мамэнори, васаби (6 шт.)",
                 price: "517 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "reddragon",
                 title: "Red Драгон",
                 description: "копченый угорь, сыр, темпурная крошка, огурец, спайси лосось «Бури», рис для суси, нори, в оранжевой масаго, васаби (8 шт.)",
                 price: "621 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "syakecalifornia",
                 title: "Сякэ Калифорния",
                 description: "лосось, огурец, авокадо, рис для суси, нори, тобико, васаби (8 шт.)",
                 price: "569 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "spicycanirory",
                 title: "Спайси кани рору",
                 description: "краб в соусе ⟪Спайси⟫, рис для суси, нори, васаби (6 шт.)",
                 price: "621 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "spicycanirory",
                 title: "Спайси магуро рору",
                 description: "тунец в соусе ⟪Спайси⟫, рис для суси, нори, васаби (6 шт.)",
                 price: "448 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "spicycyakerory",
                 title: "Спайси сякэ рору",
                 description: "лосось в соусе ⟪Спайси⟫, рис для суси, нори, васаби (6 шт.)",
                 price: "415 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "spicyynagirory",
                 title: "Спайси унаги рору",
                 description: "копченый угорь в соусе ⟪Спайси⟫, рис для суси, нори, васаби (6 шт.)",
                 price: "415 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "syakerory",
                 title: "Сякэ рору",
                 description: "лосось, рис для суси, нори, васаби (6 шт.)",
                 price: "415 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "tekka",
                 title: "Тэкка",
                 description: "тунец, рис для суси, нори, васаби (6 шт.)",
                 price: "415 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "kappamaki",
                 title: "Каппа маки",
                 description: "огурец, рис для суси, нори, (6 шт.)",
                 price: "280 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "abogadorory",
                 title: "Абогадо рору",
                 description: "авокадо, рис для суси, нори, кунжут (6 шт.)",
                 price: "288 ₽"
              ),
-             CatalogModel(
+             Catalog(
                 image: "ynagirory",
                 title: "Унаги рору",
                 description: "копченый угорь, огурец, рис для суси, нори, соус «унаги», кунжут, васаби (6 шт.)",
@@ -293,49 +293,49 @@ extension CatalogModel {
         
         // Горячие роллы
         [
-            CatalogModel(
+            Catalog(
                 image: "yakisyakarory",
                 title: "Яки сякэ рору",
                 description: "лосось в соусе «Спайси», сыр ⟪Эдам⟫, сыр, рис для суси, нори, кунжут, тобико, соус «Терияки», васаби (8 шт.)",
                 price: "580 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "kaisanmakiage",
                 title: "Кайсэн маки агэ",
                 description: "снежный краб, авокадо, масаго, сыр, рис для суси, мамэнори, темпура. Сервируется с цитрусовым соусом «Спайси» (6 шт.)",
                 price: "548 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "kaisanmakiage",
                 title: "Персона грата",
                 description: "копченый угорь, сыр, авокадо, масаго, рис для суси, кунжут, темпура, соус «спайси». Сервируется цитрусовым соусом «спайси» (4 шт.)",
                 price: "600 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "pinksyakirory",
                 title: "Пинк сякэ рору",
                 description: "копченый лосось, копченый угорь, рис для суси, мамэнори, авокадо, огурец, соус «спайси», темпура, соус «Васаби», васаби (5 шт.)",
                 price: "548 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "rosygragonmaki",
                 title: "Росу драгон маки",
                 description: "копченый угорь, авокадо, масаго, сыр, тамаго, рис для суси, мамэнори, темпура. Сервируется с цитрусовым соусом «спайси» (6 шт.)",
                 price: "623 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "sacramentomaki",
                 title: "Сакраменто маки",
                 description: "снежный краб, омлет, дикий лосось-гриль, сыр, рис для суси, сыр «Эдам», васаби (8 шт.)",
                 price: "600 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "syakiteriyakirory",
                 title: "Сякэ терияки рору",
                 description: "лосось, снежный краб, авокадо, огурец, рис для суси, нори, кунжут, соус «Терияки», васаби (6 шт.)",
                 price: "580 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "yakiunagirory",
                 title: "Яки унаги рору",
                 description: "копченый угорь в соусе «Спайси», рис для суси, нори, сыр ⟪Эдам⟫, сыр, кунжут, тобико, соус «Терияки», васаби (8 шт.)",
@@ -345,43 +345,43 @@ extension CatalogModel {
         
         // Сеты
         [
-            CatalogModel(
+            Catalog(
                 image: "setbenefit",
                 title: "Сет Бенефит",
                 description: "Айдахо маки (8шт), Калифорния с лососем (8шт), Киото рору (8шт), Нидзя рору (8шт),Спайси лосось (6 шт), Каппа маки (6 шт), Спайси унаги (6 шт), Спайси тунец (6 шт), Red Драгон (8 шт), Бали маки (7 шт), Тайга рору (7 шт) - 11 порций роллов (78 шт.)",
                 price: "5 612 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "setsakura",
                 title: "Сакура сет",
                 description: "Калифорния с крабом (8 шт.), Айдахо маки (8 шт.), Бали маки (7 шт.), Филадельфия (8 шт.), Киото рору (8 шт.), Сякэ Калифорния (8 шт.) - 6 порций роллов (47 шт.)",
                 price: "3 632 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "setsugrem",
                 title: "Сет с угрем",
                 description: "Нидзя рору (8 шт.), Red Драгон (8 шт.), Драгон рору (7 шт.), Унаги рору (6 шт.) - 4 порции роллов (29 шт.)",
                 price: "2 226 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "setslososem",
                 title: "Сет с лососем",
                 description: "О рицу маки (6 шт.), Киото рору (8 шт.), Филадельфия (8 шт.), Сякэ рору (6 шт.) - 4 порции роллов (28 шт.)",
                 price: "2 267 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "grillset",
                 title: "Гриль-сет",
                 description: "Сякэ терияки рору (8шт), Яки унаги рору (8шт), Яки сякэ рору (8шт), Сакраменто маки (8шт)- 4 порции роллов (32 шт.)",
                 price: "2 317 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "settempura",
                 title: "Темпура-сет",
                 description: "Кайсэн маки агэ (6 шт.), Росу драгон маки (6 шт.), Персона грата (4 шт.), Пинк сякэ рору (5 шт.) - 4 порции роллов (21 шт.)",
                 price: "2 319 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "setclassic",
                 title: "Сет Классик",
                 description: "Филадельфия (8 шт.), Калифорния с крабом (8 шт.), Сякэ рору (6 шт.), Унаги рору (6 шт.), Каппа маки (6 шт.) - 5 порций роллов (34 шт.)",
@@ -391,91 +391,91 @@ extension CatalogModel {
         
         // Напитки
         [
-            CatalogModel(
+            Catalog(
                 image: "limonadcrizhovniklichi",
                 title: "Лимонад Крыжовник-Личи",
                 description: "пюре крыжовника, пюре личи, сироп бузины, яблочный сок, сок лимона, содовая",
                 price: "397 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "limonadmandarinkracnayasmorodina",
                 title: "Лимонад Мандарин-Красная смородина",
                 description: "пюре мандарина, пюре красной смородины, яблочный сок, сироп грейпфрута, лимонад лимон-лайм",
                 price: "397 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "limonadskyblue",
                 title: "Лимонад Скай блю",
                 description: "пюре личи, сок лимона, сироп Блю Кюрасао, спрайт, перламутр",
                 price: "397 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "limonadmintmarakya",
                 title: "Лимонад «Мята-Маракуйя»",
                 description: "пюре маракуйи, мята, сахарный сироп, лед фраппе, содовая",
                 price: "397 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "limonadmarakyabublegum",
                 title: "Лимонад «Маракуйя-Бабл-гам»",
                 description: "пюре маракуйи, сироп Бабл-Гам, сироп алычи, сироп Гренадин, сироп сахарный, лимонный фреш, лед фраппе, содовая",
                 price: "397 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "teafeixoalichi",
                 title: "Чай Фейхоа - Личи",
                 description: "пюре личи, пюре фейхоа, тайский синий чай, грейпфрутовый сироп",
                 price: "427 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "teaoblepixa",
                 title: "Чай Облепиха - Маракуя",
                 description: "ягоды облепихи, пюре маракуйи, мята, апельсин, зеленый чай",
                 price: "387 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "coffeeglyaseice",
                 title: "Кофе «Гляссе Айс»",
                 description: "кофе, молоко,  мороженое, сахарный сироп, какао, лед",
                 price: "387 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "smuziananasmalina",
                 title: "Смузи «Ананас-Малина»",
                 description: "ананасовый сок, малина, банан, сироп алычи, лед",
                 price: "377 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "smuzilesnuiyagodimix",
                 title: "Смузи «Лесные Ягоды микс»",
                 description: "ягоды смородины, ежевики, малины, вишневый сок, сироп бузины, сироп сахарный, пюре клюквы, лед фраппе",
                 price: "377 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "smuzisheiktropikana",
                 title: "Смузи «Шейк Тропикана»",
                 description: "пюре манго, сироп манго, ананасовый сок, кокосовый сироп, кокосовое молоко, лед фраппе",
                 price: "377 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "smuzipinakoladamix",
                 title: "Смузи «Пина Колада микс»",
                 description: "ананасовый сок, кокосовое молоко, кокосовый сироп, банан, сироп Бабл Гам, лед",
                 price: "287 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "morsoblepixa",
                 title: "Морс Облепиховый",
                 description: "облепиха, сахар, вода",
                 price: "287 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "morschernosmorodina",
                 title: "Морс Черносмородиновый",
                 description: "черная смородина, сахар, вода",
                 price: "287 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "morsclucva",
                 title: "Морс Клюквенный",
                 description: "клюква, сахар, вода",
@@ -485,19 +485,19 @@ extension CatalogModel {
         
         // Соусы
         [
-            CatalogModel(
+            Catalog(
             image: "vasabi",
             title: "Васаби",
             description: "японский хрен",
             price: "60 ₽"
             ),
-            CatalogModel(
+            Catalog(
             image: "imbirmarinovaniu",
             title: "Имбирь маринованный",
             description: "имбирь, вода, соль, регуляторы кислотности, кислота уксусная, кислота лимонная, консервант сорбат калия, усилитель вкуса и аромата глутамат натрия, подсластители",
             price: "60 ₽"
             ),
-            CatalogModel(
+            Catalog(
                 image: "soeviusoys",
                 title: "Соевый соус",
                 description: "вода, соевые бобы, пшеница, соль, сахар",

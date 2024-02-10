@@ -75,7 +75,7 @@ class CartViewController: UIViewController {
     lazy var emptyView: EmptyView = {
         let emptyView = EmptyView()
         emptyView.translatesAutoresizingMaskIntoConstraints = false
-        emptyView.isHidden = !CatalogModel.catalogArray.isEmpty
+        emptyView.isHidden = !Catalog.catalogArray.isEmpty
         return emptyView
     }()
 

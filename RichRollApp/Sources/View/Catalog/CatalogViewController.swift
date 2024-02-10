@@ -4,8 +4,8 @@ class CatalogViewController: UIViewController {
     
     var viewModel: CatalogViewModel = CatalogViewModel()
     
-    var catalogItems: [[CatalogModel]] = CatalogModel.catalogArray
-    var filteredItems: [CatalogModel] = []
+    var catalogItems: [[Catalog]] = Catalog.catalogArray
+    var filteredItems: [Catalog] = []
     
     let sectionTitles = ["Форель. Погружение", "Онигири", "Роллы", "Горячие роллы", "Сеты", "Напитки", "Соусы"]
     
@@ -174,7 +174,7 @@ extension CatalogViewController: UICollectionViewDelegate {
         return UICollectionReusableView()
     }
 
-    func filteredItems(inSection section: Int) -> [CatalogModel] {
+    func filteredItems(inSection section: Int) -> [Catalog] {
         guard section < catalogItems.count && section < sectionTitles.count else {
             return []
         }

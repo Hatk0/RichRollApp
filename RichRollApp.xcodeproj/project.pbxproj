@@ -16,9 +16,9 @@
 		733535B92B4F40EA005982D1 /* OrdersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733535B82B4F40EA005982D1 /* OrdersViewModel.swift */; };
 		733535BB2B4F43E0005982D1 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733535BA2B4F43E0005982D1 /* CartViewModel.swift */; };
 		733535BD2B4F47F6005982D1 /* CartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733535BC2B4F47F6005982D1 /* CartCollectionViewCell.swift */; };
-		734B4F102B497A00009C0600 /* MoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B4F0F2B497A00009C0600 /* MoreModel.swift */; };
+		734B4F102B497A00009C0600 /* More.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B4F0F2B497A00009C0600 /* More.swift */; };
 		734B4F122B497E57009C0600 /* MoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B4F112B497E57009C0600 /* MoreCollectionViewCell.swift */; };
-		736B5D8B2B4B140F0091594F /* CatalogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736B5D8A2B4B140F0091594F /* CatalogModel.swift */; };
+		736B5D8B2B4B140F0091594F /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736B5D8A2B4B140F0091594F /* Catalog.swift */; };
 		73A560772B506377009F90A6 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A560762B506377009F90A6 /* EmptyView.swift */; };
 		73A656B82B483A55009F55F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A656B72B483A55009F55F1 /* AppDelegate.swift */; };
 		73A656BA2B483A55009F55F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A656B92B483A55009F55F1 /* SceneDelegate.swift */; };
@@ -31,7 +31,7 @@
 		73A656DB2B48471B009F55F1 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A656DA2B48471B009F55F1 /* MoreViewController.swift */; };
 		73A656DD2B485475009F55F1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A656DC2B485475009F55F1 /* TabBarController.swift */; };
 		73A656E02B486058009F55F1 /* StocksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A656DF2B486058009F55F1 /* StocksCollectionViewCell.swift */; };
-		73A656E22B48694B009F55F1 /* StocksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A656E12B48694B009F55F1 /* StocksModel.swift */; };
+		73A656E22B48694B009F55F1 /* Stocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A656E12B48694B009F55F1 /* Stocks.swift */; };
 		73B2F5B52B4F1971007E1A69 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B2F5B42B4F1971007E1A69 /* DetailViewController.swift */; };
 		73C49CCD2B5FEFEF0083A91C /* makeViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C49CCC2B5FEFEF0083A91C /* makeViews.swift */; };
 		73C49CD02B6006B00083A91C /* UICollectionViewCell+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C49CCF2B6006B00083A91C /* UICollectionViewCell+Ext.swift */; };
@@ -49,9 +49,9 @@
 		733535B82B4F40EA005982D1 /* OrdersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewModel.swift; sourceTree = "<group>"; };
 		733535BA2B4F43E0005982D1 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		733535BC2B4F47F6005982D1 /* CartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCollectionViewCell.swift; sourceTree = "<group>"; };
-		734B4F0F2B497A00009C0600 /* MoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreModel.swift; sourceTree = "<group>"; };
+		734B4F0F2B497A00009C0600 /* More.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = More.swift; sourceTree = "<group>"; };
 		734B4F112B497E57009C0600 /* MoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCollectionViewCell.swift; sourceTree = "<group>"; };
-		736B5D8A2B4B140F0091594F /* CatalogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogModel.swift; sourceTree = "<group>"; };
+		736B5D8A2B4B140F0091594F /* Catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
 		73A560762B506377009F90A6 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		73A656B42B483A55009F55F1 /* RichRollApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RichRollApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73A656B72B483A55009F55F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 		73A656DA2B48471B009F55F1 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		73A656DC2B485475009F55F1 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		73A656DF2B486058009F55F1 /* StocksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksCollectionViewCell.swift; sourceTree = "<group>"; };
-		73A656E12B48694B009F55F1 /* StocksModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksModel.swift; sourceTree = "<group>"; };
+		73A656E12B48694B009F55F1 /* Stocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stocks.swift; sourceTree = "<group>"; };
 		73B2F5B42B4F1971007E1A69 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		73C49CCC2B5FEFEF0083A91C /* makeViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = makeViews.swift; sourceTree = "<group>"; };
 		73C49CCF2B6006B00083A91C /* UICollectionViewCell+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Ext.swift"; sourceTree = "<group>"; };
@@ -88,6 +88,7 @@
 		7315B92F2B4D95FB00C82171 /* Catalog */ = {
 			isa = PBXGroup;
 			children = (
+				73CE92E12B77C67200CFB424 /* Model */,
 				73A656BB2B483A55009F55F1 /* CatalogViewController.swift */,
 				7315B9362B4D9C7F00C82171 /* CatalogViewController+SearchBar.swift */,
 				73E7AA9D2B4C0C0200B109DF /* CatalogCollectionViewCell.swift */,
@@ -100,6 +101,7 @@
 		7315B9302B4D960C00C82171 /* Stocks */ = {
 			isa = PBXGroup;
 			children = (
+				73CE92E22B77C67A00CFB424 /* Model */,
 				73A656D42B4846D3009F55F1 /* StocksViewController.swift */,
 				73A656DF2B486058009F55F1 /* StocksCollectionViewCell.swift */,
 			);
@@ -117,6 +119,7 @@
 		7315B9322B4D962000C82171 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				73CE92E32B77C68100CFB424 /* Model */,
 				73A656DA2B48471B009F55F1 /* MoreViewController.swift */,
 				734B4F112B497E57009C0600 /* MoreCollectionViewCell.swift */,
 			);
@@ -198,7 +201,6 @@
 			isa = PBXGroup;
 			children = (
 				7315B9382B4DA11D00C82171 /* Helpers */,
-				73A656D12B483B4F009F55F1 /* Model */,
 				73A656D02B483B44009F55F1 /* View */,
 				73A656CE2B483B29009F55F1 /* ViewModel */,
 			);
@@ -233,16 +235,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		73A656D12B483B4F009F55F1 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				736B5D8A2B4B140F0091594F /* CatalogModel.swift */,
-				73A656E12B48694B009F55F1 /* StocksModel.swift */,
-				734B4F0F2B497A00009C0600 /* MoreModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		73C49CCB2B5FEFD90083A91C /* Functions */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +249,30 @@
 				73C49CCF2B6006B00083A91C /* UICollectionViewCell+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		73CE92E12B77C67200CFB424 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				736B5D8A2B4B140F0091594F /* Catalog.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		73CE92E22B77C67A00CFB424 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				73A656E12B48694B009F55F1 /* Stocks.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		73CE92E32B77C68100CFB424 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				734B4F0F2B497A00009C0600 /* More.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,7 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				734B4F102B497A00009C0600 /* MoreModel.swift in Sources */,
+				734B4F102B497A00009C0600 /* More.swift in Sources */,
 				7315B9372B4D9C7F00C82171 /* CatalogViewController+SearchBar.swift in Sources */,
 				73B2F5B52B4F1971007E1A69 /* DetailViewController.swift in Sources */,
 				733535B52B4F2A56005982D1 /* StocksViewModel.swift in Sources */,
@@ -344,7 +360,7 @@
 				73C49CCD2B5FEFEF0083A91C /* makeViews.swift in Sources */,
 				733535B22B4F24E3005982D1 /* DetailViewModel.swift in Sources */,
 				73E7AA9E2B4C0C0200B109DF /* CatalogCollectionViewCell.swift in Sources */,
-				73A656E22B48694B009F55F1 /* StocksModel.swift in Sources */,
+				73A656E22B48694B009F55F1 /* Stocks.swift in Sources */,
 				73A560772B506377009F90A6 /* EmptyView.swift in Sources */,
 				7315B93E2B4DA87B00C82171 /* MoreViewModel.swift in Sources */,
 				73C49CD02B6006B00083A91C /* UICollectionViewCell+Ext.swift in Sources */,
@@ -353,7 +369,7 @@
 				73A656B82B483A55009F55F1 /* AppDelegate.swift in Sources */,
 				73A656BA2B483A55009F55F1 /* SceneDelegate.swift in Sources */,
 				7315B93A2B4DA12500C82171 /* Observable.swift in Sources */,
-				736B5D8B2B4B140F0091594F /* CatalogModel.swift in Sources */,
+				736B5D8B2B4B140F0091594F /* Catalog.swift in Sources */,
 				73A656DB2B48471B009F55F1 /* MoreViewController.swift in Sources */,
 				733535BD2B4F47F6005982D1 /* CartCollectionViewCell.swift in Sources */,
 				73A656D52B4846D3009F55F1 /* StocksViewController.swift in Sources */,

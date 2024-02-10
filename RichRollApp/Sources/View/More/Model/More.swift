@@ -1,20 +1,20 @@
 import Foundation
 
-struct MoreModel: Hashable {
+struct More: Hashable {
     var image: String
     var title: String
 }
 
-extension MoreModel {
+extension More {
     static let moreArray = [
         
         // Адреса и карты
         [
-            MoreModel(
+            More(
             image: "point",
             title: "Адреса"
         ),
-         MoreModel(
+         More(
             image: "cards",
             title: "Карты"
          )
@@ -22,7 +22,7 @@ extension MoreModel {
         
         // Мои промокоды
         [
-            MoreModel(
+            More(
             image: "promocode",
             title: "Мои промокоды"
             )
@@ -30,27 +30,27 @@ extension MoreModel {
         
         // Избранное, настройки, условия доставки, рестораны, связаться с нами, о приложении
         [
-            MoreModel(
+            More(
                 image: "favourites",
                 title: "Избранное"
             ),
-            MoreModel(
+            More(
                 image: "settings",
                 title: "Настройки"
             ),
-            MoreModel(
+            More(
                 image: "car",
                 title: "Условия доставки"
             ),
-            MoreModel(
+            More(
                 image: "restaurants",
                 title: "Рестораны"
             ),
-            MoreModel(
+            More(
                 image: "message",
                 title: "Связаться с нами"
             ),
-            MoreModel(
+            More(
                 image: "info",
                 title: "О приложении"
             )

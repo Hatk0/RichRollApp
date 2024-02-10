@@ -62,7 +62,7 @@ class MoreCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Configuration
     
-    func configuration(model: MoreModel) {
+    func configuration(model: More) {
         image.image = UIImage(named: model.image)
         titleLabel.text = model.title
     }

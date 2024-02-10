@@ -2,10 +2,10 @@ import Foundation
 
 final class CatalogViewModel {
     let numberOfSectionsObservable = Observable<Int>(0)
-    let itemsObservable = Observable<[CatalogModel]>([])
-    let selectedItemObservable = Observable<CatalogModel?>(nil)
+    let itemsObservable = Observable<[Catalog]>([])
+    let selectedItemObservable = Observable<Catalog?>(nil)
     
-    private var catalog: [[CatalogModel]] = CatalogModel.catalogArray
+    private var catalog: [[Catalog]] = Catalog.catalogArray
     
     func numberOfSections() -> Int {
         let numberOfSections = catalog.count
@@ -13,14 +13,14 @@ final class CatalogViewModel {
         return numberOfSections
     }
     
-    func items(for section: Int) -> [CatalogModel] {
+    func items(for section: Int) -> [Catalog] {
         guard section >= 0, section < catalog.count else { return [] }
         let itemsForSection = catalog[section]
         itemsObservable.value = itemsForSection
         return itemsForSection
     }
     
-    func item(at indexPath: IndexPath) -> CatalogModel? {
+    func item(at indexPath: IndexPath) -> Catalog? {
         guard indexPath.section >= 0, indexPath.section < catalog.count else {
             selectedItemObservable.value = nil
             return nil

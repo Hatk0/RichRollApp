@@ -71,7 +71,7 @@ class StocksCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Configuration
 
-    func configuration(model: StocksModel) {
+    func configuration(model: Stocks) {
         image.image = UIImage(named: model.image)
         titleLabel.text = model.title
         descriptionLabel.text = model.description
