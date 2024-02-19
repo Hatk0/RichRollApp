@@ -1,59 +1,78 @@
 import Foundation
 
-final class CartViewModel {
-    
-    var cartItems: [[Catalog]] = Catalog.catalogArray
+class CartViewModel {
+    private var cart: [[Catalog]] = LocalData.shared.getModels(fileName: "Catalog")
+
+    var totalPriceText: String {
+        return "Сумма заказа: \(calculateTotalPrice())"
+    }
+
+    var deliveryText: String {
+        return "Доставка: \(deliveryCost)"
+    }
+
+    var serviceChargeText: String {
+        return "Сервисный сбор: \(serviceCharge)"
+    }
+
+    var totalText: String {
+        return "Итого: \(calculateTotalPrice())"
+    }
     
     var isCartEmpty: Bool {
-        return cartItems.isEmpty
+        return cart.isEmpty
     }
-    
+
     var totalItemsCount: Int {
-        return cartItems.flatMap { $0 }.count
+        return cart.flatMap { $0 }.count
     }
-    
+
     var deliveryCost: String {
         let fixedDeliveryCost = 75
         return "\(fixedDeliveryCost) руб."
     }
-    
+
     var serviceCharge: String {
         let serviceChargePercentage = 20
         let totalPrice = calculateTotalPriceNumeric()
         let serviceCharge = (totalPrice * serviceChargePercentage) / 100
         return "\(serviceCharge) руб."
     }
-    
-    func addToCart(item: Catalog) {
-        cartItems.append([item])
+
+    func numberOfItems(inSection section: Int) -> Int {
+        section < cart.count ? cart[section].count : .zero
     }
-    
+
+    func addToCart(item: Catalog) {
+        cart.append([item])
+    }
+
     func removeFromCart(at indexPath: IndexPath) {
-        guard indexPath.section < cartItems.count, indexPath.item < cartItems[indexPath.section].count else {
+        guard indexPath.section < cart.count, indexPath.item < cart[indexPath.section].count else {
             return
         }
-        cartItems[indexPath.section].remove(at: indexPath.item)
-        
-        if cartItems[indexPath.section].isEmpty {
-            cartItems.remove(at: indexPath.section)
+        cart[indexPath.section].remove(at: indexPath.item)
+
+        if cart[indexPath.section].isEmpty {
+            cart.remove(at: indexPath.section)
         }
     }
-    
+
     func getCartItem(at indexPath: IndexPath) -> Catalog? {
-        guard indexPath.section < cartItems.count, indexPath.item < cartItems[indexPath.section].count else {
+        guard indexPath.section < cart.count, indexPath.item < cart[indexPath.section].count else {
             return nil
         }
-        return cartItems[indexPath.section][indexPath.item]
+        return cart[indexPath.section][indexPath.item]
     }
-    
+
     func clearCart() {
-        cartItems = []
+        cart = []
     }
-    
+
     func calculateTotalPrice() -> String {
         return "\(calculateTotalPriceNumeric()) руб."
     }
-    
+
     func getItemDetails(at indexPath: IndexPath) -> (title: String, price: String)? {
         guard let cartItem = getCartItem(at: indexPath) else {
             return nil
@@ -62,9 +81,9 @@ final class CartViewModel {
         let price = cartItem.price
         return (title, price)
     }
-    
-    private func calculateTotalPriceNumeric() -> Int {
-        let totalPrice = cartItems.flatMap { $0 }.reduce(0) { $0 + (Int($1.price) ?? 0) }
+
+    func calculateTotalPriceNumeric() -> Int {
+        let totalPrice = cart.flatMap { $0 }.reduce(0) { $0 + (Int($1.price) ?? 0) }
         return totalPrice
     }
 }

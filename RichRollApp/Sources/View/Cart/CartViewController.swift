@@ -63,7 +63,7 @@ class CartViewController: UIViewController {
     private lazy var emptyView: EmptyView = {
         let emptyView = EmptyView()
         emptyView.translatesAutoresizingMaskIntoConstraints = false
-        emptyView.isHidden = !Catalog.catalogArray.isEmpty
+        emptyView.isHidden = !viewModel.isCartEmpty
         return emptyView
     }()
 
@@ -193,7 +193,6 @@ class CartViewController: UIViewController {
         }
     }
 
-
     @objc
     func orderButtonTapped() {
         print("Кнопка заказа нажата!")
@@ -204,7 +203,7 @@ class CartViewController: UIViewController {
 
 extension CartViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        section < viewModel.cartItems.count ? viewModel.cartItems[section].count : .zero
+        viewModel.numberOfItems(inSection: section)
     }
         
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

@@ -1,11 +1,11 @@
 import Foundation
 
-final class MoreViewModel {
+final class MoreViewModel: MoreViewModelProtocol {
     let numberOfSectionsObservable = Observable<Int>(0)
     let itemsObservable = Observable<[More]>([])
     let selectedItemObservable = Observable<More?>(nil)
-    
-    private var more: [[More]] = More.moreArray
+
+    private var more: [[More]] = LocalData.shared.getModels(fileName: "More")
     
     func numberOfSections() -> Int {
         let numberOfSections = more.count

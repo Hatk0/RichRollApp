@@ -1,14 +1,14 @@
 import Foundation
 
-final class StocksViewModel {
-    private var stocks: [Stocks] = Stocks.modelsArray
+final class StocksViewModel: StocksViewModelProtocol {
+    private var stocks: [Stocks] = LocalData.shared.getModels(fileName: "Stocks")
     
     var numberOfStocks: Int {
-        return stocks.count
+        stocks.count
     }
     
     func stock(at index: Int) -> Stocks? {
-        guard index >= 0, index < stocks.count else { return nil }
+        guard index >= 0 && index < stocks.count else { return nil }
         return stocks[index]
     }
 }

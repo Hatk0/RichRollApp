@@ -2,19 +2,13 @@ import UIKit
 
 class CatalogViewController: UIViewController {
     
-    var viewModel: CatalogViewModel = CatalogViewModel()
-    
-    var catalogItems: [[Catalog]] = Catalog.catalogArray
-    var filteredItems: [Catalog] = []
-    
-    let sectionTitles = ["Форель. Погружение", "Онигири", "Роллы", "Горячие роллы", "Сеты", "Напитки", "Соусы"]
-    
-    // MARK: - UI
+    private var viewModel = CatalogViewModel()
     
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "Поиск"
         searchBar.searchBarStyle = .minimal
+        searchBar.delegate = self
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         return searchBar
     }()
@@ -31,24 +25,19 @@ class CatalogViewController: UIViewController {
         return collectionView
     }()
     
-    // MARK: - Lifecycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupView()
         setupHierarchy()
         setupLayout()
+        
+        viewModel.reloadData()
     }
-    
-    // MARK: - Setup
     
     private func setupView() {
         overrideUserInterfaceStyle = .dark
         self.hideKeyboardWhenTappedAround()
-        
-        setupSearchBar()
-        filteredItems = catalogItems.flatMap { $0 }
     }
     
     private func setupHierarchy() {
@@ -68,8 +57,6 @@ class CatalogViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10)
         ])
     }
-    
-    // MARK: - CollectionViewLayout
     
     private func createLayoutSection(title: String) -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.8))
@@ -97,7 +84,7 @@ class CatalogViewController: UIViewController {
         return UICollectionViewCompositionalLayout { [self] (section, _) -> NSCollectionLayoutSection in
             switch section {
             case 0...6:
-                let title = sectionTitles[section]
+                let title = viewModel.sectionTitles[section]
                 return createLayoutSection(title: title)
             default:
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
@@ -117,8 +104,6 @@ class CatalogViewController: UIViewController {
     }
 }
 
-// MARK: - Extensions
-
 extension CatalogViewController {
     func hideKeyboardWhenTappedAround() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(CatalogViewController.dismissKeyboard))
@@ -135,30 +120,24 @@ extension CatalogViewController {
 extension CatalogViewController: UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return sectionTitles.count
+        return viewModel.sectionTitles.count
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let sectionItems = filteredItems(inSection: section)
-        return sectionItems.count
+        return viewModel.filteredItems(inSection: section).count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CatalogCollectionViewCell.identifier, for: indexPath) as? CatalogCollectionViewCell else {
             fatalError("Unable to dequeue CatalogCollectionViewCell")
         }
-        
-        configureCell(cell, at: indexPath)
-        cell.backgroundColor = UIColor(red: 0.09, green: 0.09, blue: 0.11, alpha: 1.00)
-        
-        return cell
-    }
-    
-    private func configureCell(_ cell: CatalogCollectionViewCell, at indexPath: IndexPath) {
-        let sectionItems = filteredItems(inSection: indexPath.section)
+
+        let sectionItems = viewModel.filteredItems(inSection: indexPath.section)
         let catalogItem = sectionItems[indexPath.item]
-        
         cell.configuration(model: catalogItem)
+        cell.backgroundColor = UIColor(red: 0.09, green: 0.09, blue: 0.11, alpha: 1.00)
+
+        return cell
     }
 }
 
@@ -166,36 +145,18 @@ extension CatalogViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: RichRollCellHeader.identifier, for: indexPath) as? RichRollCellHeader {
-            let sectionTitleIndex = min(indexPath.section, sectionTitles.count - 1)
-            header.titleLabel.text = sectionTitles[sectionTitleIndex]
+            let sectionTitleIndex = min(indexPath.section, viewModel.sectionTitles.count - 1)
+            header.titleLabel.text = viewModel.sectionTitles[sectionTitleIndex]
             return header
         }
-        
+
         return UICollectionReusableView()
-    }
-
-    func filteredItems(inSection section: Int) -> [Catalog] {
-        guard section < catalogItems.count && section < sectionTitles.count else {
-            return []
-        }
-
-        let searchText = searchBar.text?.lowercased() ?? ""
-        
-        if searchText.isEmpty {
-            return catalogItems[section]
-        } else {
-            let filteredSectionItems = catalogItems[section].filter {
-                $0.title.localizedCaseInsensitiveContains(searchText)
-            }
-            return filteredSectionItems.isEmpty ? [] : filteredSectionItems
-        }
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailViewController = DetailViewController()
-        let selectedCatalogItem = filteredItems(inSection: indexPath.section)[indexPath.item]
+        let selectedCatalogItem = viewModel.filteredItems(inSection: indexPath.section)[indexPath.item]
         detailViewController.viewModel.selectedCatalogItem = selectedCatalogItem
-
         detailViewController.modalPresentationStyle = .fullScreen
         present(detailViewController, animated: true, completion: nil)
     }
@@ -203,26 +164,8 @@ extension CatalogViewController: UICollectionViewDelegate {
 
 extension CatalogViewController: UISearchBarDelegate {
     
-    func setupSearchBar() {
-        self.searchBar.delegate = self
-    }
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchForItem(with: searchText)
-    }
-    
-    func searchForItem(with searchText: String) {
-        print("Текст для поиска: \(searchText)")
-        
-        if searchText.isEmpty {
-            filteredItems = catalogItems.flatMap { $0 }
-        } else {
-            filteredItems = catalogItems.flatMap { $0 }.filter {
-                $0.title.localizedCaseInsensitiveContains(searchText)
-            }
-        }
-        print("Количество отфильтрованных элементов: \(filteredItems.count)")
-        
+        viewModel.searchForItem(with: searchText)
         collectionView.reloadData()
     }
 }
