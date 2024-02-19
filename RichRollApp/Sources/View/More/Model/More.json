@@ -1,0 +1,44 @@
+[
+    [
+        {
+            "image": "point",
+            "title": "Адреса"
+        },
+        {
+            "image": "cards",
+            "title": "Карты"
+        }
+    ],
+    [
+        {
+            "image": "promocode",
+            "title": "Мои промокоды"
+        }
+    ],
+    [
+        {
+            "image": "favourites",
+            "title": "Избранное"
+        },
+        {
+            "image": "settings",
+            "title": "Настройки"
+        },
+        {
+            "image": "car",
+            "title": "Условия доставки"
+        },
+        {
+            "image": "restaurants",
+            "title": "Рестораны"
+        },
+        {
+            "image": "message",
+            "title": "Связаться с нами"
+        },
+        {
+            "image": "info",
+            "title": "О приложении"
+        }
+    ]
+]

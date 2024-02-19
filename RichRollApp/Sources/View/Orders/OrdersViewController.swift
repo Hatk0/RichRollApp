@@ -6,13 +6,11 @@ class OrdersViewController: UIViewController {
     
     // MARK: - UI
     
-    private lazy var ordersLabel: UILabel = {
-        return makeLabel(withText: "\(viewModel.getOrdersLabelText())",
-                         font: .boldSystemFont(ofSize: 20),
-                         textColor: nil,
-                         numberOfLines: 2,
-                         textAlignment: .center)
-    }()
+    private lazy var ordersLabel = ReusableLabel(text: "\(viewModel.getOrdersLabelText())",
+                                                 font: .boldSystemFont(ofSize: 20),
+                                                 textColor: nil,
+                                                 numberOfLines: 2,
+                                                 textAlignment: .center)
     
     // MARK: - Lifecycle
 
