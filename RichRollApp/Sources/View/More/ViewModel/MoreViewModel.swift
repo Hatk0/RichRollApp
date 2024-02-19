@@ -1,11 +1,11 @@
 import Foundation
 
-final class MoreViewModel {
+final class MoreViewModel: MoreViewModelProtocol {
     let numberOfSectionsObservable = Observable<Int>(0)
-    let itemsObservable = Observable<[MoreModel]>([])
-    let selectedItemObservable = Observable<MoreModel?>(nil)
-    
-    private var more: [[MoreModel]] = MoreModel.moreArray
+    let itemsObservable = Observable<[More]>([])
+    let selectedItemObservable = Observable<More?>(nil)
+
+    private var more: [[More]] = LocalData.shared.getModels(fileName: "More")
     
     func numberOfSections() -> Int {
         let numberOfSections = more.count
@@ -13,14 +13,14 @@ final class MoreViewModel {
         return numberOfSections
     }
     
-    func items(for section: Int) -> [MoreModel] {
+    func items(for section: Int) -> [More] {
         guard section >= 0, section < more.count else { return [] }
         let itemsForSection = more[section]
         itemsObservable.value = itemsForSection
         return itemsForSection
     }
     
-    func item(at indexPath: IndexPath) -> MoreModel? {
+    func item(at indexPath: IndexPath) -> More? {
         guard indexPath.section >= 0, indexPath.section < more.count else {
             selectedItemObservable.value = nil
             return nil

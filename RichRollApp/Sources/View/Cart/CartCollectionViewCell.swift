@@ -14,57 +14,45 @@ class CartCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI
     
-    lazy var image: UIImageView = {
-        return makeImageView(contentMode: .scaleAspectFit, clipsToBounds: true)
-    }()
+    private lazy var image = ReusableImage(contentMode: .scaleAspectFit, clipsToBounds: true)
     
-    lazy var titleLabel: UILabel = {
-        return makeLabel(withText: "",
-                         font: .boldSystemFont(ofSize: 16),
-                         textColor: nil,
-                         numberOfLines: 0,
-                         textAlignment: nil)
-    }()
+    private lazy var titleLabel = ReusableLabel(text: "",
+                                                font: .boldSystemFont(ofSize: 16),
+                                                textColor: nil,
+                                                numberOfLines: 0,
+                                                textAlignment: nil)
     
-    lazy var priceLabel: UILabel = {
-        return makeLabel(withText: "",
-                         font: .systemFont(ofSize: 17, weight: .heavy),
-                         textColor: nil,
-                         numberOfLines: 0,
-                         textAlignment: nil)
-    }()
+    private lazy var priceLabel = ReusableLabel(text: "",
+                                                font: .systemFont(ofSize: 17, weight: .heavy),
+                                                textColor: nil,
+                                                numberOfLines: 0,
+                                                textAlignment: nil)
     
-    lazy var minusButton: UIButton = {
-        return makeButton(backgroundColor: .systemGray5,
-                          titleFont: nil,
-                          cornerRadius: 15,
-                          image: UIImage(systemName: "minus"),
-                          tintColor: .white,
-                          title: nil,
-                          target: self,
-                          action: #selector(minusButtonTapped),
-                          for: .touchUpInside)
-    }()
+    private lazy var minusButton = ReusableButton(backgroundColor: .systemGray5,
+                                                  titleFont: nil,
+                                                  cornerRadius: 15,
+                                                  image: UIImage(systemName: "minus"),
+                                                  tintColor: .white,
+                                                  title: nil,
+                                                  target: self,
+                                                  action: #selector(minusButtonTapped),
+                                                  controlEvents: .touchUpInside)
     
-    lazy var quantityLabel: UILabel = {
-        return makeLabel(withText: "\(quantity)",
-                         font: .systemFont(ofSize: 17, weight: .heavy),
-                         textColor: nil,
-                         numberOfLines: 0,
-                         textAlignment: nil)
-    }()
+    private lazy var quantityLabel = ReusableLabel(text: "\(quantity)",
+                                                   font: .systemFont(ofSize: 17, weight: .heavy),
+                                                   textColor: nil,
+                                                   numberOfLines: 0,
+                                                   textAlignment: nil)
     
-    lazy var plusButton: UIButton = {
-        return makeButton(backgroundColor: .systemGray5,
-                          titleFont: nil,
-                          cornerRadius: 15,
-                          image: UIImage(systemName: "plus"),
-                          tintColor: .white,
-                          title: nil,
-                          target: self,
-                          action: #selector(plusButtonTapped),
-                          for: .touchUpInside)
-    }()
+    private lazy var plusButton = ReusableButton(backgroundColor: .systemGray5,
+                                                 titleFont: nil,
+                                                 cornerRadius: 15,
+                                                 image: UIImage(systemName: "plus"),
+                                                 tintColor: .white,
+                                                 title: nil,
+                                                 target: self,
+                                                 action: #selector(plusButtonTapped),
+                                                 controlEvents: .touchUpInside)
     
     // MARK: - Initializers
     
@@ -135,7 +123,7 @@ class CartCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Configuration
     
-    func configuration(model: CatalogModel) {
+    func configuration(model: Catalog) {
         image.image = UIImage(named: model.image)
         titleLabel.text = model.title
         priceLabel.text = model.price

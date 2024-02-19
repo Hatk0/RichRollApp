@@ -2,7 +2,7 @@ import UIKit
 
 class MoreViewController: UIViewController {
     
-    var viewModel: MoreViewModel = MoreViewModel()
+    var viewModel = MoreViewModel()
     
     // MARK: - UI
     

@@ -6,13 +6,11 @@ class RichRollCellHeader: UICollectionReusableView {
     
     // MARK: - UI
     
-    lazy var titleLabel: UILabel = {
-        return makeLabel(withText: "",
-                         font: .boldSystemFont(ofSize: 15),
-                         textColor: .darkGray,
-                         numberOfLines: 0,
-                         textAlignment: nil)
-    }()
+    let titleLabel = ReusableLabel(text: "",
+                                   font: .boldSystemFont(ofSize: 15),
+                                   textColor: .darkGray,
+                                   numberOfLines: 0,
+                                   textAlignment: nil)
     
     // MARK: - Initalizers
     
