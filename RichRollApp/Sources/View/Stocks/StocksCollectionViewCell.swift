@@ -8,17 +8,9 @@ class StocksCollectionViewCell: UICollectionViewCell {
     
     private lazy var image = ReusableImage(contentMode: .scaleAspectFill, clipsToBounds: true)
     
-    private lazy var titleLabel = ReusableLabel(text: "",
-                                                font: .boldSystemFont(ofSize: 20),
-                                                textColor: nil,
-                                                numberOfLines: 0,
-                                                textAlignment: nil)
+    private lazy var titleLabel = ReusableLabel(font: .boldSystemFont(ofSize: 20))
         
-    private lazy var descriptionLabel = ReusableLabel(text: "",
-                                                      font: .systemFont(ofSize: 12, weight: .regular),
-                                                      textColor: nil,
-                                                      numberOfLines: 0,
-                                                      textAlignment: nil)
+    private lazy var descriptionLabel = ReusableLabel(font: .systemFont(ofSize: 12, weight: .regular))
         
     // MARK: - Initalizers
         

@@ -7,38 +7,21 @@ class DetailViewController: UIViewController {
     // MARK: - UI
     
     private lazy var loveButton = ReusableButton(backgroundColor: .clear,
-                                                 titleFont: nil,
-                                                 cornerRadius: nil,
                                                  image: UIImage(systemName: "star"),
                                                  tintColor: .systemYellow,
-                                                 title: "",
                                                  target: self,
-                                                 action: #selector(loveButtonTapped),
-                                                 controlEvents: .touchUpInside)
+                                                 action: #selector(loveButtonTapped))
     
     private lazy var imageView = ReusableImage(contentMode: .scaleAspectFit, clipsToBounds: true)
     
-    private lazy var titleLabel = ReusableLabel(text: "",
-                                                font: .boldSystemFont(ofSize: 25),
-                                                textColor: .white,
-                                                numberOfLines: 0,
-                                                textAlignment: nil)
+    private lazy var titleLabel = ReusableLabel(font: .boldSystemFont(ofSize: 25),
+                                                textColor: .white)
     
     private lazy var priceButton = ReusableButton(backgroundColor: .systemGray5,
-                                                  titleFont: .boldSystemFont(ofSize: 18),
-                                                  cornerRadius: nil,
-                                                  image: nil,
-                                                  tintColor: nil,
-                                                  title: "",
-                                                  target: nil,
-                                                  action: nil,
-                                                  controlEvents: .touchUpInside)
+                                                  titleFont: .boldSystemFont(ofSize: 18))
     
-    private lazy var descriptionLabel = ReusableLabel(text: "",
-                                                      font: .systemFont(ofSize: 14),
-                                                      textColor: .secondaryLabel,
-                                                      numberOfLines: 0,
-                                                      textAlignment: nil)
+    private lazy var descriptionLabel = ReusableLabel(font: .systemFont(ofSize: 14),
+                                                      textColor: .secondaryLabel)
     
     // MARK: - Lifecycle
     

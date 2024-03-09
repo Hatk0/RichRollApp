@@ -31,32 +31,17 @@ class MoreViewController: UIViewController {
     
     private let menuItemButton = UIBarButtonItem()
     
-    private lazy var userName: UILabel = {
-        let label = UILabel()
-        label.text = "Ричард"
-        label.font = .systemFont(ofSize: 30, weight: .heavy)
-        label.textAlignment = .left
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private lazy var userName = ReusableLabel(text: "Ричард",
+                                              font: .systemFont(ofSize: 30, weight: .heavy),
+                                              textAlignment: .left)
     
-    private lazy var phoneNumberLabel: UILabel = {
-       let label = UILabel()
-        label.text = "+8 (800) 555-35-35"
-        label.font = .systemFont(ofSize: 15)
-        label.textAlignment = .left
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private lazy var phoneNumberLabel = ReusableLabel(text: "+8 (800) 555-35-35",
+                                                      font: .systemFont(ofSize: 15),
+                                                      textAlignment: .left)
     
-    private lazy var emailLabel: UILabel = {
-       let label = UILabel()
-        label.text = "r1chArd2018@gmail.com"
-        label.font = .systemFont(ofSize: 15)
-        label.textAlignment = .left
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private lazy var emailLabel = ReusableLabel(text: "r1chArd2018@gmail.com",
+                                                font: .systemFont(ofSize: 15),
+                                                textAlignment: .left)
     
     private lazy var collectionView: UICollectionView = {
         let layout = createLayout()

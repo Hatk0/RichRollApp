@@ -161,7 +161,7 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
-		735732902B9CBB33000EE33F /* DataLayer */ = {
+		735732902B9CBB33000EE33F /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				73C701692B827CF300EF5AC5 /* LocalDataService.swift */,
@@ -169,7 +169,7 @@
 				735732922B9CBC22000EE33F /* Stocks */,
 				735732952B9CBC26000EE33F /* More */,
 			);
-			path = DataLayer;
+			path = Data;
 			sourceTree = "<group>";
 		};
 		735732912B9CBC1B000EE33F /* Catalog */ = {
@@ -265,8 +265,8 @@
 		73A656CD2B483B25009F55F1 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				735732902B9CBB33000EE33F /* DataLayer */,
 				7315B9382B4DA11D00C82171 /* Helpers */,
+				735732902B9CBB33000EE33F /* Data */,
 				73CE92EA2B77C84A00CFB424 /* Reusable */,
 				73A656D02B483B44009F55F1 /* View */,
 			);

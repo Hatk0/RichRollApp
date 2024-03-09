@@ -2,7 +2,7 @@ import UIKit
 
 class ReusableLabel: UILabel {
     
-    init(frame: CGRect = .zero, text: String?, font: UIFont, textColor: UIColor?, numberOfLines: Int, textAlignment: NSTextAlignment?) {
+    init(frame: CGRect = .zero, text: String = "", font: UIFont, textColor: UIColor? = nil, numberOfLines: Int = 0, textAlignment: NSTextAlignment? = nil) {
         super.init(frame: frame)
         
         self.makeLabel(text: text, font: font, textColor: textColor, numberOfLines: numberOfLines, textAlignment: textAlignment)

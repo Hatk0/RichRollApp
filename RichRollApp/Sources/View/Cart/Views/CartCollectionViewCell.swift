@@ -16,43 +16,26 @@ class CartCollectionViewCell: UICollectionViewCell {
     
     private lazy var image = ReusableImage(contentMode: .scaleAspectFit, clipsToBounds: true)
     
-    private lazy var titleLabel = ReusableLabel(text: "",
-                                                font: .boldSystemFont(ofSize: 16),
-                                                textColor: nil,
-                                                numberOfLines: 0,
-                                                textAlignment: nil)
+    private lazy var titleLabel = ReusableLabel(font: .boldSystemFont(ofSize: 16))
     
-    private lazy var priceLabel = ReusableLabel(text: "",
-                                                font: .systemFont(ofSize: 17, weight: .heavy),
-                                                textColor: nil,
-                                                numberOfLines: 0,
-                                                textAlignment: nil)
+    private lazy var priceLabel = ReusableLabel(font: .systemFont(ofSize: 17, weight: .heavy))
     
     private lazy var minusButton = ReusableButton(backgroundColor: .systemGray5,
-                                                  titleFont: nil,
                                                   cornerRadius: 15,
                                                   image: UIImage(systemName: "minus"),
                                                   tintColor: .white,
-                                                  title: nil,
                                                   target: self,
-                                                  action: #selector(minusButtonTapped),
-                                                  controlEvents: .touchUpInside)
+                                                  action: #selector(minusButtonTapped))
     
     private lazy var quantityLabel = ReusableLabel(text: "\(quantity)",
-                                                   font: .systemFont(ofSize: 17, weight: .heavy),
-                                                   textColor: nil,
-                                                   numberOfLines: 0,
-                                                   textAlignment: nil)
+                                                   font: .systemFont(ofSize: 17, weight: .heavy))
     
     private lazy var plusButton = ReusableButton(backgroundColor: .systemGray5,
-                                                 titleFont: nil,
                                                  cornerRadius: 15,
                                                  image: UIImage(systemName: "plus"),
                                                  tintColor: .white,
-                                                 title: nil,
                                                  target: self,
-                                                 action: #selector(plusButtonTapped),
-                                                 controlEvents: .touchUpInside)
+                                                 action: #selector(plusButtonTapped))
     
     // MARK: - Initializers
     

@@ -8,13 +8,11 @@ class CartViewController: UIViewController {
     
     private lazy var clearButton = ReusableButton(backgroundColor: .clear,
                                                   titleFont: UIFont.systemFont(ofSize: 18),
-                                                  cornerRadius: nil,
                                                   image: UIImage(systemName: "trash"),
                                                   tintColor: .systemGray3,
                                                   title: "Очистить корзину",
                                                   target: self,
-                                                  action: #selector(clearButtonTapped),
-                                                  controlEvents: .touchUpInside)
+                                                  action: #selector(clearButtonTapped))
     
     private lazy var collectionView: UICollectionView = {
         let layout = createLayout()
@@ -26,39 +24,28 @@ class CartViewController: UIViewController {
         return collectionView
     }()
     
-    private lazy var orderButton: UIButton = ReusableButton(backgroundColor: .systemYellow,
+    private lazy var orderButton = ReusableButton(backgroundColor: .systemYellow,
                                                             titleFont: UIFont.systemFont(ofSize: 18),
-                                                            cornerRadius: nil,
-                                                            image: nil,
                                                             tintColor: .black,
                                                             title: "Оформить заказ",
                                                             target: self,
-                                                            action: #selector(orderButtonTapped),
-                                                            controlEvents: .touchUpInside)
+                                                            action: #selector(orderButtonTapped))
     
-    private lazy var sumLabel: UILabel = ReusableLabel(text: "Сумма заказа: \(viewModel.calculateTotalPrice())",
+    private lazy var sumLabel = ReusableLabel(text: "Сумма заказа: \(viewModel.calculateTotalPrice())",
                                                        font: .systemFont(ofSize: 16),
-                                                       textColor: .white,
-                                                       numberOfLines: 0,
-                                                       textAlignment: nil)
+                                                       textColor: .white)
     
     private lazy var deliveryLabel = ReusableLabel(text: "Доставка: \(viewModel.deliveryCost)",
                                                    font: .systemFont(ofSize: 16),
-                                                   textColor: .white,
-                                                   numberOfLines: 0,
-                                                   textAlignment: nil)
+                                                   textColor: .white)
 
     private lazy var serviceChargeLabel = ReusableLabel(text: "Сервисный сбор: \(viewModel.serviceCharge)",
                                                         font: .systemFont(ofSize: 16),
-                                                        textColor: .white,
-                                                        numberOfLines: 0,
-                                                        textAlignment: nil)
+                                                        textColor: .white)
 
     private lazy var totalLabel = ReusableLabel(text: "Итого: \(viewModel.calculateTotalPrice())",
                                                 font: .boldSystemFont(ofSize: 18),
-                                                textColor: .white,
-                                                numberOfLines: 0,
-                                                textAlignment: nil)
+                                                textColor: .white)
     
     private lazy var emptyView: EmptyView = {
         let emptyView = EmptyView()

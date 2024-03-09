@@ -8,7 +8,6 @@ class OrdersViewController: UIViewController {
     
     private lazy var ordersLabel = ReusableLabel(text: "\(viewModel.getOrdersLabelText())",
                                                  font: .boldSystemFont(ofSize: 20),
-                                                 textColor: nil,
                                                  numberOfLines: 2,
                                                  textAlignment: .center)
     

@@ -8,27 +8,14 @@ class CatalogCollectionViewCell: UICollectionViewCell {
     
     private lazy var image = ReusableImage(contentMode: .scaleAspectFit, clipsToBounds: true)
 
-    private lazy var titleLabel = ReusableLabel(text: "",
-                                                font: .boldSystemFont(ofSize: 15),
-                                                textColor: nil,
-                                                numberOfLines: 0,
-                                                textAlignment: nil)
+    private lazy var titleLabel = ReusableLabel(font: .boldSystemFont(ofSize: 15))
     
-    private lazy var descriptionLabel = ReusableLabel(text: "",
-                                                      font: .systemFont(ofSize: 12, weight: .regular),
-                                                      textColor: nil,
-                                                      numberOfLines: 2,
-                                                      textAlignment: nil)
+    private lazy var descriptionLabel = ReusableLabel(font: .systemFont(ofSize: 12, weight: .regular),
+                                                      numberOfLines: 2)
     
     private lazy var priceButton = ReusableButton(backgroundColor: .systemGray5,
                                                   titleFont: .boldSystemFont(ofSize: 12),
-                                                  cornerRadius: 10,
-                                                  image: nil,
-                                                  tintColor: nil,
-                                                  title: "",
-                                                  target: nil,
-                                                  action: nil,
-                                                  controlEvents: .touchUpInside)
+                                                  cornerRadius: 10)
     
     // MARK: - Initializers
     
