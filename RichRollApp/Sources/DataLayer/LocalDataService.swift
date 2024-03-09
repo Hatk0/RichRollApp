@@ -1,7 +1,7 @@
 import Foundation
 
-class LocalData {
-    static let shared = LocalData()
+class LocalDataService {
+    static let shared = LocalDataService()
     
     private init() {}
     

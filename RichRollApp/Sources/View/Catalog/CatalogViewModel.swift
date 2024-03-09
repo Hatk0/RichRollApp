@@ -20,7 +20,7 @@ final class CatalogViewModel: CatalogViewModelProtocol {
     let itemsObservable = Observable<[Catalog]>([])
     let selectedItemObservable = Observable<Catalog?>(nil)
     
-    private var catalog: [[Catalog]] = LocalData.shared.getModels(fileName: "Catalog")
+    private var catalog: [[Catalog]] = LocalDataService.shared.getModels(fileName: "Catalog")
     private var filteredItems: [Catalog] = []
     
     let sectionTitles = ["Форель. Погружение", "Онигири", "Роллы", "Горячие роллы", "Сеты", "Напитки", "Соусы"]

@@ -2,7 +2,9 @@ import UIKit
 
 class CatalogViewController: UIViewController {
     
-    private var viewModel = CatalogViewModel()
+    var viewModel = CatalogViewModel()
+    
+    // MARK: - UI
     
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
@@ -25,6 +27,8 @@ class CatalogViewController: UIViewController {
         return collectionView
     }()
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +38,8 @@ class CatalogViewController: UIViewController {
         
         viewModel.reloadData()
     }
+    
+    // MARK: - Setup
     
     private func setupView() {
         overrideUserInterfaceStyle = .dark
@@ -57,6 +63,8 @@ class CatalogViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10)
         ])
     }
+    
+    // MARK: - CollectionViewLayout
     
     private func createLayoutSection(title: String) -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.8))
@@ -103,6 +111,8 @@ class CatalogViewController: UIViewController {
         }
     }
 }
+
+// MARK: - Extensions
 
 extension CatalogViewController {
     func hideKeyboardWhenTappedAround() {

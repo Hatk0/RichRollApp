@@ -11,7 +11,7 @@ final class MoreViewModel: MoreViewModelProtocol {
     let itemsObservable = Observable<[More]>([])
     let selectedItemObservable = Observable<More?>(nil)
 
-    private var more: [[More]] = LocalData.shared.getModels(fileName: "More")
+    private var more: [[More]] = LocalDataService.shared.getModels(fileName: "More")
     
     func numberOfSections() -> Int {
         let numberOfSections = more.count

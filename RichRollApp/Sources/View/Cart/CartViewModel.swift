@@ -17,8 +17,8 @@ protocol CartViewModelProtocol {
 }
 
 
-class CartViewModel {
-    private var cart: [[Catalog]] = LocalData.shared.getModels(fileName: "Catalog")
+final class CartViewModel {
+    private var cart: [[Catalog]] = LocalDataService.shared.getModels(fileName: "Catalog")
 
     var totalPriceText: String {
         return "Сумма заказа: \(calculateTotalPrice())"

@@ -7,7 +7,7 @@ protocol StocksViewModelProtocol {
 }
 
 final class StocksViewModel: StocksViewModelProtocol {
-    private var stocks: [Stocks] = LocalData.shared.getModels(fileName: "Stocks")
+    private var stocks: [Stocks] = LocalDataService.shared.getModels(fileName: "Stocks")
     
     var numberOfStocks: Int {
         stocks.count

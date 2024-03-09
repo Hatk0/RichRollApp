@@ -6,7 +6,7 @@ class MoreCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI
     
-    lazy var image: UIImageView = {
+    private lazy var image: UIImageView = {
        let image = UIImageView()
         image.clipsToBounds = true
         image.contentMode = .scaleAspectFit
@@ -14,7 +14,7 @@ class MoreCollectionViewCell: UICollectionViewCell {
         return image
     }()
 
-    lazy var titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
        let label = UILabel()
         label.font = .boldSystemFont(ofSize: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
