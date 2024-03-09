@@ -1,5 +1,11 @@
 import Foundation
 
+protocol MoreViewModelProtocol {
+    func numberOfSections() -> Int
+    func items(for section: Int) -> [More]
+    func item(at indexPath: IndexPath) -> More?
+}
+
 final class MoreViewModel: MoreViewModelProtocol {
     let numberOfSectionsObservable = Observable<Int>(0)
     let itemsObservable = Observable<[More]>([])

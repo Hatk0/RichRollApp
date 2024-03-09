@@ -42,12 +42,6 @@
 		73F2C0F92B7C9279006D7B41 /* Stocks.json in Resources */ = {isa = PBXBuildFile; fileRef = 73F2C0F82B7C9279006D7B41 /* Stocks.json */; };
 		73F2C0FB2B7C9F92006D7B41 /* More.json in Resources */ = {isa = PBXBuildFile; fileRef = 73F2C0FA2B7C9F92006D7B41 /* More.json */; };
 		73F2C0FD2B7CA8C7006D7B41 /* Catalog.json in Resources */ = {isa = PBXBuildFile; fileRef = 73F2C0FC2B7CA8C7006D7B41 /* Catalog.json */; };
-		73F2C0FF2B7E5941006D7B41 /* StocksViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F2C0FE2B7E5941006D7B41 /* StocksViewModelProtocol.swift */; };
-		73F2C1012B7E64FC006D7B41 /* OrdersViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F2C1002B7E64FC006D7B41 /* OrdersViewModelProtocol.swift */; };
-		73F2C1032B7E6549006D7B41 /* CartViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F2C1022B7E6549006D7B41 /* CartViewModelProtocol.swift */; };
-		73F2C1052B7E738A006D7B41 /* CatalogViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F2C1042B7E738A006D7B41 /* CatalogViewModelProtocol.swift */; };
-		73F2C1072B7FB885006D7B41 /* DetailViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F2C1062B7FB885006D7B41 /* DetailViewModelProtocol.swift */; };
-		73F2C1092B7FB932006D7B41 /* MoreViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F2C1082B7FB932006D7B41 /* MoreViewModelProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,12 +82,6 @@
 		73F2C0F82B7C9279006D7B41 /* Stocks.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Stocks.json; sourceTree = "<group>"; };
 		73F2C0FA2B7C9F92006D7B41 /* More.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = More.json; sourceTree = "<group>"; };
 		73F2C0FC2B7CA8C7006D7B41 /* Catalog.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Catalog.json; sourceTree = "<group>"; };
-		73F2C0FE2B7E5941006D7B41 /* StocksViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksViewModelProtocol.swift; sourceTree = "<group>"; };
-		73F2C1002B7E64FC006D7B41 /* OrdersViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewModelProtocol.swift; sourceTree = "<group>"; };
-		73F2C1022B7E6549006D7B41 /* CartViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModelProtocol.swift; sourceTree = "<group>"; };
-		73F2C1042B7E738A006D7B41 /* CatalogViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewModelProtocol.swift; sourceTree = "<group>"; };
-		73F2C1062B7FB885006D7B41 /* DetailViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelProtocol.swift; sourceTree = "<group>"; };
-		73F2C1082B7FB932006D7B41 /* MoreViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewModelProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,7 +283,6 @@
 		73CE92E42B77C75F00CFB424 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				73F2C1042B7E738A006D7B41 /* CatalogViewModelProtocol.swift */,
 				7315B92A2B4D8B5F00C82171 /* CatalogViewModel.swift */,
 			);
 			path = ViewModel;
@@ -304,7 +291,6 @@
 		73CE92E52B77C76D00CFB424 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				73F2C0FE2B7E5941006D7B41 /* StocksViewModelProtocol.swift */,
 				733535B42B4F2A56005982D1 /* StocksViewModel.swift */,
 			);
 			path = ViewModel;
@@ -313,7 +299,6 @@
 		73CE92E62B77C77E00CFB424 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				73F2C1002B7E64FC006D7B41 /* OrdersViewModelProtocol.swift */,
 				733535B82B4F40EA005982D1 /* OrdersViewModel.swift */,
 			);
 			path = ViewModel;
@@ -322,7 +307,6 @@
 		73CE92E72B77C78800CFB424 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				73F2C1022B7E6549006D7B41 /* CartViewModelProtocol.swift */,
 				733535BA2B4F43E0005982D1 /* CartViewModel.swift */,
 			);
 			path = ViewModel;
@@ -331,7 +315,6 @@
 		73CE92E82B77C79900CFB424 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				73F2C1082B7FB932006D7B41 /* MoreViewModelProtocol.swift */,
 				7315B93D2B4DA87B00C82171 /* MoreViewModel.swift */,
 			);
 			path = ViewModel;
@@ -340,7 +323,6 @@
 		73CE92E92B77C7AE00CFB424 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				73F2C1062B7FB885006D7B41 /* DetailViewModelProtocol.swift */,
 				733535B12B4F24E3005982D1 /* DetailViewModel.swift */,
 			);
 			path = ViewModel;
@@ -433,7 +415,6 @@
 				73CE92F22B77E57700CFB424 /* ReusableImage.swift in Sources */,
 				73B2F5B52B4F1971007E1A69 /* DetailViewController.swift in Sources */,
 				733535B52B4F2A56005982D1 /* StocksViewModel.swift in Sources */,
-				73F2C1052B7E738A006D7B41 /* CatalogViewModelProtocol.swift in Sources */,
 				7315B92B2B4D8B5F00C82171 /* CatalogViewModel.swift in Sources */,
 				73A656DD2B485475009F55F1 /* TabBarController.swift in Sources */,
 				73A656E02B486058009F55F1 /* StocksCollectionViewCell.swift in Sources */,
@@ -444,7 +425,6 @@
 				73E7AAA02B4C31AD00B109DF /* RichRollCellHeader.swift in Sources */,
 				73CE92EE2B77C9B500CFB424 /* ReusableLabel.swift in Sources */,
 				733535B22B4F24E3005982D1 /* DetailViewModel.swift in Sources */,
-				73F2C1072B7FB885006D7B41 /* DetailViewModelProtocol.swift in Sources */,
 				73E7AA9E2B4C0C0200B109DF /* CatalogCollectionViewCell.swift in Sources */,
 				73A656E22B48694B009F55F1 /* Stocks.swift in Sources */,
 				73A560772B506377009F90A6 /* EmptyView.swift in Sources */,
@@ -454,16 +434,12 @@
 				73A656D92B484706009F55F1 /* CartViewController.swift in Sources */,
 				73A656B82B483A55009F55F1 /* AppDelegate.swift in Sources */,
 				73A656BA2B483A55009F55F1 /* SceneDelegate.swift in Sources */,
-				73F2C0FF2B7E5941006D7B41 /* StocksViewModelProtocol.swift in Sources */,
 				7315B93A2B4DA12500C82171 /* Observable.swift in Sources */,
 				73C7016A2B827CF300EF5AC5 /* LocalData.swift in Sources */,
 				736B5D8B2B4B140F0091594F /* Catalog.swift in Sources */,
 				73CE92F02B77CCDB00CFB424 /* ReusableButton.swift in Sources */,
-				73F2C1092B7FB932006D7B41 /* MoreViewModelProtocol.swift in Sources */,
 				73A656DB2B48471B009F55F1 /* MoreViewController.swift in Sources */,
 				733535BD2B4F47F6005982D1 /* CartCollectionViewCell.swift in Sources */,
-				73F2C1012B7E64FC006D7B41 /* OrdersViewModelProtocol.swift in Sources */,
-				73F2C1032B7E6549006D7B41 /* CartViewModelProtocol.swift in Sources */,
 				73A656D52B4846D3009F55F1 /* StocksViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
