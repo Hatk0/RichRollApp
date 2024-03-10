@@ -113,11 +113,14 @@ class MoreViewController: UIViewController {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
                                                       heightDimension: .fractionalHeight(0.3))
                 let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
-                layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 15, leading: 5, bottom: 0, trailing: 0)
+                layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 15,
+                                                                   leading: 5,
+                                                                   bottom: 0,
+                                                                   trailing: 0)
 
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                        heightDimension: .estimated(200))
-                let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,subitems: [layoutItem])
+                let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [layoutItem])
 
                 let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
                 layoutSection.interGroupSpacing = 0
@@ -127,11 +130,14 @@ class MoreViewController: UIViewController {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                       heightDimension: .fractionalHeight(0.3))
                 let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
-                layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 0)
+                layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 5,
+                                                                   leading: 5,
+                                                                   bottom: 5,
+                                                                   trailing: 0)
 
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                        heightDimension: .estimated(200))
-                let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,subitems: [layoutItem])
+                let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [layoutItem])
 
                 let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
                 layoutSection.interGroupSpacing = 0
@@ -141,11 +147,14 @@ class MoreViewController: UIViewController {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                       heightDimension: .fractionalHeight(0.3))
                 let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
-                layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 0)
+                layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 0,
+                                                                   leading: 5,
+                                                                   bottom: 0,
+                                                                   trailing: 0)
 
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                        heightDimension: .estimated(190))
-                let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,subitems: [layoutItem])
+                let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [layoutItem])
 
                 let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
                 layoutSection.interGroupSpacing = 0
@@ -180,9 +189,11 @@ class MoreViewController: UIViewController {
         let editProfile = UIAction(title: "Редактировать профиль") { _ in
             print("Редактировать профиль")
         }
+        
         let leave = UIAction(title: "Выйти") { _ in
             print("Выйти")
         }
+        
         let deleteAccount = UIAction(title: "Удалить аккаунт") { _ in
             print("Удалить аккаунт")
         }

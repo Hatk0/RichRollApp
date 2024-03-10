@@ -20,17 +20,29 @@ class TabBarController: UITabBarController {
     }
     
     private func setupTabBarViewControllers() {
-        let catalog = self.createNavigation(with: "Каталог", and: UIImage(named: "rolls"), viewController: CatalogViewController())
-        let stocks = self.createNavigation(with: "Акции", and: UIImage(named: "percent"), viewController: StocksViewController())
-        let orders = self.createNavigation(with: "Заказы", and: UIImage(named: "waiter"), viewController: OrdersViewController())
-        let cart = self.createNavigation(with: "Корзина", and: UIImage(named: "foodcart"), viewController: CartViewController())
-        let more = self.createNavigation(with: "Еще", and: UIImage(systemName: "ellipsis"), viewController: MoreViewController())
+        let catalog = self.createNavigation(with: "Каталог",
+                                            and: UIImage(named: "rolls"),
+                                            viewController: CatalogViewController())
+        let stocks = self.createNavigation(with: "Акции",
+                                           and: UIImage(named: "percent"),
+                                           viewController: StocksViewController())
+        let orders = self.createNavigation(with: "Заказы",
+                                           and: UIImage(named: "waiter"),
+                                           viewController: OrdersViewController())
+        let cart = self.createNavigation(with: "Корзина",
+                                         and: UIImage(named: "foodcart"),
+                                         viewController: CartViewController())
+        let more = self.createNavigation(with: "Еще",
+                                         and: UIImage(systemName: "ellipsis"),
+                                         viewController: MoreViewController())
         
         let controllers = [catalog, stocks, orders, cart, more]
         self.setViewControllers(controllers, animated: true)
     }
     
-    private func createNavigation(with title: String, and image: UIImage?, viewController: UIViewController) -> UINavigationController {
+    private func createNavigation(with title: String,
+                                  and image: UIImage?,
+                                  viewController: UIViewController) -> UINavigationController {
         let navigationController = UINavigationController(rootViewController: viewController)
         
         navigationController.tabBarItem.title = title

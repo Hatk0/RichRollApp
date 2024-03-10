@@ -6,20 +6,9 @@ class MoreCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI
     
-    private lazy var image: UIImageView = {
-       let image = UIImageView()
-        image.clipsToBounds = true
-        image.contentMode = .scaleAspectFit
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
-    }()
-
-    private lazy var titleLabel: UILabel = {
-       let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 18)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private lazy var image = ReusableImage(contentMode: .scaleAspectFit, clipsToBounds: true)
+    
+    private lazy var titleLabel = ReusableLabel(font: .boldSystemFont(ofSize: 18))
     
     // MARK: - Initializers
     

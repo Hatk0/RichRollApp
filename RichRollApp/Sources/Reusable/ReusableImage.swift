@@ -2,7 +2,11 @@ import UIKit
 
 class ReusableImage: UIImageView {
 
-    init(frame: CGRect = .zero, contentMode: UIView.ContentMode, clipsToBounds: Bool) {
+    init(
+        frame: CGRect = .zero,
+         contentMode: UIView.ContentMode,
+         clipsToBounds: Bool
+    ) {
         super.init(frame: frame)
         
         self.makeImageView(contentMode: contentMode, clipsToBounds: clipsToBounds)
