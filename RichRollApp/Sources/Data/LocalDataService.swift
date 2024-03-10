@@ -1,6 +1,10 @@
 import Foundation
 
-class LocalDataService {
+protocol LocalDataServiceProtocol {
+    func getModels<T: Codable>(fileName: String) -> [T]
+}
+
+final class LocalDataService: LocalDataServiceProtocol {
     static let shared = LocalDataService()
     
     private init() {}
