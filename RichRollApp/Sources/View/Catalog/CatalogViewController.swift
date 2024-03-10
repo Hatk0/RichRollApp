@@ -21,7 +21,9 @@ class CatalogViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(CatalogCollectionViewCell.self, forCellWithReuseIdentifier: CatalogCollectionViewCell.identifier)
-        collectionView.register(RichRollCellHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: RichRollCellHeader.identifier)
+        collectionView.register(RichRollCellHeader.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: RichRollCellHeader.identifier)
         collectionView.showsVerticalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
@@ -67,24 +69,30 @@ class CatalogViewController: UIViewController {
     // MARK: - CollectionViewLayout
     
     private func createLayoutSection(title: String) -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.8))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .fractionalHeight(0.8))
         let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
-        layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+        layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 5,
+                                                           leading: 5,
+                                                           bottom: 5,
+                                                           trailing: 5)
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(200))
-        let layoutGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [layoutItem])
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                               heightDimension: .estimated(200))
+        let layoutGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize,
+                                                           subitems: [layoutItem])
         
         let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
         layoutSection.interGroupSpacing = 0
         
-        let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93), heightDimension: .estimated(50))
+        let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93),
+                                                             heightDimension: .estimated(50))
         
         let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: layoutSectionHeaderSize,
             elementKind: UICollectionView.elementKindSectionHeader,
             alignment: .top)
         layoutSection.boundarySupplementaryItems = [layoutSectionHeader]
-        
         return layoutSection
     }
 
@@ -92,20 +100,25 @@ class CatalogViewController: UIViewController {
         return UICollectionViewCompositionalLayout { [self] (section, _) -> NSCollectionLayoutSection in
             switch section {
             case 0...6:
-                let title = viewModel.sectionTitles[section]
+                let title = viewModel.sections[section].title
                 return createLayoutSection(title: title)
             default:
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                      heightDimension: .fractionalHeight(1))
                 
                 let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
-                layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
+                layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 0,
+                                                                   leading: 5,
+                                                                   bottom: 0,
+                                                                   trailing: 5)
                 
-                let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(100))
-                let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitems: [layoutItem])
+                let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                             heightDimension: .estimated(100))
+                let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize,
+                                                                     subitems: [layoutItem])
                 
                 let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
                 layoutSection.orthogonalScrollingBehavior = .groupPagingCentered
-                
                 return layoutSection
             }
         }
@@ -130,14 +143,20 @@ extension CatalogViewController {
 extension CatalogViewController: UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return viewModel.sectionTitles.count
+        viewModel.sections.count
     }
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.filteredItems(inSection: section).count
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
+        viewModel.filteredItems(inSection: section).count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CatalogCollectionViewCell.identifier, for: indexPath) as? CatalogCollectionViewCell else {
             fatalError("Unable to dequeue CatalogCollectionViewCell")
         }
@@ -146,24 +165,30 @@ extension CatalogViewController: UICollectionViewDataSource {
         let catalogItem = sectionItems[indexPath.item]
         cell.configuration(model: catalogItem)
         cell.backgroundColor = UIColor(red: 0.09, green: 0.09, blue: 0.11, alpha: 1.00)
-
         return cell
     }
 }
 
 extension CatalogViewController: UICollectionViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: RichRollCellHeader.identifier, for: indexPath) as? RichRollCellHeader {
-            let sectionTitleIndex = min(indexPath.section, viewModel.sectionTitles.count - 1)
-            header.titleLabel.text = viewModel.sectionTitles[sectionTitleIndex]
+    func collectionView(
+        _ collectionView: UICollectionView,
+        viewForSupplementaryElementOfKind kind: String,
+        at indexPath: IndexPath
+    ) -> UICollectionReusableView {
+        if let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                        withReuseIdentifier: RichRollCellHeader.identifier,
+                                                                        for: indexPath) as? RichRollCellHeader {
+            let sectionTitle = viewModel.sections[indexPath.section].title
+            header.titleLabel.text = sectionTitle
             return header
         }
-
         return UICollectionReusableView()
     }
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath) {
         let detailViewController = DetailViewController()
         let selectedCatalogItem = viewModel.filteredItems(inSection: indexPath.section)[indexPath.item]
         detailViewController.viewModel.selectedCatalogItem = selectedCatalogItem
@@ -174,7 +199,9 @@ extension CatalogViewController: UICollectionViewDelegate {
 
 extension CatalogViewController: UISearchBarDelegate {
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(
+        _ searchBar: UISearchBar,
+        textDidChange searchText: String) {
         viewModel.searchForItem(with: searchText)
         collectionView.reloadData()
     }

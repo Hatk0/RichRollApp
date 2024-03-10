@@ -1,75 +1,36 @@
 import Foundation
 
 protocol CatalogViewModelProtocol {
-    var numberOfSectionsObservable: Observable<Int> { get }
     var itemsObservable: Observable<[Catalog]> { get }
     var selectedItemObservable: Observable<Catalog?> { get }
-    var sectionTitles: [String] { get }
     
     func reloadData()
-    func numberOfSections() -> Int
-    func items(for section: Int) -> [Catalog]
-    func item(at indexPath: IndexPath) -> Catalog?
     func searchForItem(with searchText: String)
     func filteredItems(inSection section: Int) -> [Catalog]
     func configureCell(_ cell: CatalogCollectionViewCell, at indexPath: IndexPath)
+    func didTap(on index: Int)
 }
 
 final class CatalogViewModel: CatalogViewModelProtocol {
-    let numberOfSectionsObservable = Observable<Int>(0)
     let itemsObservable = Observable<[Catalog]>([])
     let selectedItemObservable = Observable<Catalog?>(nil)
     
     private var catalog: [[Catalog]] = LocalDataService.shared.getModels(fileName: "Catalog")
     private var filteredItems: [Catalog] = []
-    
-    let sectionTitles = ["Форель. Погружение", "Онигири", "Роллы", "Горячие роллы", "Сеты", "Напитки", "Соусы"]
+    let sections: [CatalogSection] = CatalogSection.allSections
     
     func reloadData() {
         searchForItem(with: "")
     }
     
-    func numberOfSections() -> Int {
-        let numberOfSections = catalog.count
-        numberOfSectionsObservable.value = numberOfSections
-        return numberOfSections
-    }
-    
-    func items(for section: Int) -> [Catalog] {
-        guard section >= 0, section < catalog.count else { return [] }
-        let itemsForSection = catalog[section]
-        itemsObservable.value = itemsForSection
-        return itemsForSection
-    }
-    
-    func item(at indexPath: IndexPath) -> Catalog? {
-        guard indexPath.section >= 0, indexPath.section < catalog.count else {
-            selectedItemObservable.value = nil
-            return nil
-        }
-        
-        guard indexPath.row >= 0, indexPath.row < catalog[indexPath.section].count else {
-            selectedItemObservable.value = nil
-            return nil
-        }
-        
-        let selectedItem = catalog[indexPath.section][indexPath.row]
-        selectedItemObservable.value = selectedItem
-        return selectedItem
-    }
-    
     func searchForItem(with searchText: String) {
-        print("Текст для поиска: \(searchText)")
-        
         if searchText.isEmpty {
             filteredItems = catalog.flatMap { $0 }
         } else {
-            filteredItems = catalog.flatMap { $0 }.filter {
-                $0.title.localizedCaseInsensitiveContains(searchText)
-            }
+            filteredItems = catalog.flatMap { $0.filter { $0.title.localizedCaseInsensitiveContains(searchText) } }
         }
         
-        print("Количество отфильтрованных элементов: \(filteredItems.count)")
+        itemsObservable.value = filteredItems
     }
     
     func filteredItems(inSection section: Int) -> [Catalog] {
@@ -83,11 +44,14 @@ final class CatalogViewModel: CatalogViewModelProtocol {
                 return item == filteredItem
             }
         }
-
         return filteredSectionItems
     }
 
     func configureCell(_ cell: CatalogCollectionViewCell, at indexPath: IndexPath) {
+        guard indexPath.section < catalog.count else {
+            return
+        }
+
         let sectionItems = filteredItems(inSection: indexPath.section)
         guard indexPath.item < sectionItems.count else {
             return
@@ -95,5 +59,15 @@ final class CatalogViewModel: CatalogViewModelProtocol {
 
         let catalogItem = sectionItems[indexPath.item]
         cell.configuration(model: catalogItem)
+    }
+    
+    func didTap(on index: Int) {
+        guard index >= 0, index < filteredItems.count else {
+            selectedItemObservable.value = nil
+            return
+        }
+        
+        let selectedItem = filteredItems[index]
+        selectedItemObservable.value = selectedItem
     }
 }

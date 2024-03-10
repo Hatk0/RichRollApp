@@ -5,7 +5,7 @@ struct CatalogSection {
 }
 
 extension CatalogSection {
-    static let allSEctions: [CatalogSection] = [
+    static let allSections: [CatalogSection] = [
         CatalogSection(title: "Форель. Погружение"),
         CatalogSection(title: "Онигири"),
         CatalogSection(title: "Роллы"),

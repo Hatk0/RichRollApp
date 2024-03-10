@@ -33,7 +33,12 @@ class CatalogCollectionViewCell: UICollectionViewCell {
     // MARK: - Setup
     
     private func setupHierarchy() {
-        let views = [image, titleLabel, descriptionLabel, priceButton]
+        let views = [
+            image,
+            titleLabel,
+            descriptionLabel,
+            priceButton
+        ]
         views.forEach { self.addSubview($0) }
     }
     
