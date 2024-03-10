@@ -33,7 +33,11 @@ class StocksCollectionViewCell: UICollectionViewCell {
     }
         
     private func setupHierarchy() {
-        let views = [image, titleLabel, descriptionLabel]
+        let views = [
+            image,
+            titleLabel,
+            descriptionLabel
+        ]
         views.forEach { self.addSubview($0) }
     }
         

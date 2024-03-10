@@ -79,7 +79,15 @@ class CartViewController: UIViewController {
     }
     
     private func setupHierarchy() {
-        let views = [clearButton, collectionView, sumLabel, deliveryLabel, serviceChargeLabel, totalLabel, orderButton]
+        let views = [
+            clearButton,
+            collectionView,
+            sumLabel,
+            deliveryLabel,
+            serviceChargeLabel,
+            totalLabel,
+            orderButton
+        ]
         views.forEach { scrollView.addSubview($0) }
         view.addSubview(scrollView)
         view.addSubview(emptyView)
@@ -139,11 +147,16 @@ class CartViewController: UIViewController {
     
     private func createLayout() -> UICollectionViewCompositionalLayout {
         return UICollectionViewCompositionalLayout { sectionIndex, _ in
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.5))
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                  heightDimension: .fractionalHeight(0.5))
             let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
-            layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+            layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 5,
+                                                               leading: 5,
+                                                               bottom: 5,
+                                                               trailing: 5)
             
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(200))
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                   heightDimension: .estimated(200))
             let layoutGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [layoutItem])
             
             let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
@@ -189,25 +202,35 @@ class CartViewController: UIViewController {
 // MARK: - Extensions
 
 extension CartViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
         viewModel.numberOfItems(inSection: section)
     }
         
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CartCollectionViewCell.identifier, for: indexPath)
-
-        if let catalogItem = viewModel.getCartItem(at: indexPath), let cartCell = cell as? CartCollectionViewCell {
+        
+        if let catalogItem = viewModel.getCartItem(at: indexPath),
+           let cartCell = cell
+            as? CartCollectionViewCell {
             cartCell.configuration(model: catalogItem)
-
+            
             cartCell.minusButtonAction = { [weak self, weak cartCell] in
-                if let self = self, let cartCell = cartCell, let indexPath = collectionView.indexPath(for: cartCell) {
+                if let self = self,
+                   let cartCell = cartCell,
+                   let indexPath = collectionView.indexPath(for: cartCell) {
                     self.removeItem(at: indexPath)
                 }
             }
-
+            
             cartCell.backgroundColor = UIColor(red: 0.09, green: 0.09, blue: 0.11, alpha: 1.00)
         }
-
+        
         return cell
     }
     

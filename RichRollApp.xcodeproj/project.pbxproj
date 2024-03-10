@@ -17,6 +17,7 @@
 		733535BD2B4F47F6005982D1 /* CartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733535BC2B4F47F6005982D1 /* CartCollectionViewCell.swift */; };
 		734B4F102B497A00009C0600 /* More.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B4F0F2B497A00009C0600 /* More.swift */; };
 		734B4F122B497E57009C0600 /* MoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B4F112B497E57009C0600 /* MoreCollectionViewCell.swift */; };
+		735732992B9DDFE3000EE33F /* CatalogSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735732982B9DDFE3000EE33F /* CatalogSection.swift */; };
 		736B5D8B2B4B140F0091594F /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736B5D8A2B4B140F0091594F /* Catalog.swift */; };
 		73A560772B506377009F90A6 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A560762B506377009F90A6 /* EmptyView.swift */; };
 		73A656B82B483A55009F55F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A656B72B483A55009F55F1 /* AppDelegate.swift */; };
@@ -55,6 +56,7 @@
 		733535BC2B4F47F6005982D1 /* CartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCollectionViewCell.swift; sourceTree = "<group>"; };
 		734B4F0F2B497A00009C0600 /* More.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = More.swift; sourceTree = "<group>"; };
 		734B4F112B497E57009C0600 /* MoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCollectionViewCell.swift; sourceTree = "<group>"; };
+		735732982B9DDFE3000EE33F /* CatalogSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogSection.swift; sourceTree = "<group>"; };
 		736B5D8A2B4B140F0091594F /* Catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
 		73A560762B506377009F90A6 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		73A656B42B483A55009F55F1 /* RichRollApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RichRollApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				736B5D8A2B4B140F0091594F /* Catalog.swift */,
+				735732982B9DDFE3000EE33F /* CatalogSection.swift */,
 				73F2C0FC2B7CA8C7006D7B41 /* Catalog.json */,
 			);
 			path = Catalog;
@@ -388,6 +391,7 @@
 				73A656E02B486058009F55F1 /* StocksCollectionViewCell.swift in Sources */,
 				733535BB2B4F43E0005982D1 /* CartViewModel.swift in Sources */,
 				73A656BC2B483A55009F55F1 /* CatalogViewController.swift in Sources */,
+				735732992B9DDFE3000EE33F /* CatalogSection.swift in Sources */,
 				73A656D72B4846EB009F55F1 /* OrdersViewController.swift in Sources */,
 				734B4F122B497E57009C0600 /* MoreCollectionViewCell.swift in Sources */,
 				73E7AAA02B4C31AD00B109DF /* RichRollCellHeader.swift in Sources */,

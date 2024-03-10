@@ -71,7 +71,14 @@ class MoreViewController: UIViewController {
     }
     
     private func setupHierarchy() {
-        let views = [logoImage, dotsButton, userName, phoneNumberLabel, emailLabel, collectionView]
+        let views = [
+            logoImage,
+            dotsButton,
+            userName,
+            phoneNumberLabel,
+            emailLabel,
+            collectionView
+        ]
         views.forEach { view.addSubview($0) }
     }
     
@@ -211,16 +218,22 @@ extension MoreViewController: UICollectionViewDataSource {
         return viewModel.numberOfSections()
     }
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.items(for: section).count
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
+        return viewModel.sections(for: section).count
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreCollectionViewCell.identifier, for: indexPath) as? MoreCollectionViewCell else {
             return UICollectionViewCell()
         }
 
-        if let moreItem = viewModel.item(at: indexPath) {
+        if let moreItem = viewModel.selectedItem(at: indexPath) {
             cell.configuration(model: moreItem)
             cell.backgroundColor = UIColor(red: 0.09, green: 0.09, blue: 0.11, alpha: 1.00)
         }
@@ -230,7 +243,9 @@ extension MoreViewController: UICollectionViewDataSource {
 }
 
 extension MoreViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
     }
 }

@@ -16,7 +16,6 @@ protocol CartViewModelProtocol {
     func calculateTotalPriceNumeric() -> Int
 }
 
-
 final class CartViewModel {
     private var cart: [[Catalog]] = LocalDataService.shared.getModels(fileName: "Catalog")
 
@@ -46,6 +45,7 @@ final class CartViewModel {
 
     var deliveryCost: String {
         let fixedDeliveryCost = 75
+        
         return "\(fixedDeliveryCost) руб."
     }
 
@@ -53,6 +53,7 @@ final class CartViewModel {
         let serviceChargePercentage = 20
         let totalPrice = calculateTotalPriceNumeric()
         let serviceCharge = (totalPrice * serviceChargePercentage) / 100
+        
         return "\(serviceCharge) руб."
     }
 
@@ -79,6 +80,7 @@ final class CartViewModel {
         guard indexPath.section < cart.count, indexPath.item < cart[indexPath.section].count else {
             return nil
         }
+        
         return cart[indexPath.section][indexPath.item]
     }
 
@@ -94,13 +96,16 @@ final class CartViewModel {
         guard let cartItem = getCartItem(at: indexPath) else {
             return nil
         }
+        
         let title = cartItem.title
         let price = cartItem.price
+        
         return (title, price)
     }
 
     func calculateTotalPriceNumeric() -> Int {
         let totalPrice = cart.flatMap { $0 }.reduce(0) { $0 + (Int($1.price) ?? 0) }
+        
         return totalPrice
     }
 }

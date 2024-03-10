@@ -53,7 +53,14 @@ class CartCollectionViewCell: UICollectionViewCell {
     // MARK: - Setup
     
     private func setupHierarchy() {
-        let views = [image, titleLabel, priceLabel, minusButton, quantityLabel, plusButton]
+        let views = [
+            image,
+            titleLabel,
+            priceLabel,
+            minusButton,
+            quantityLabel,
+            plusButton
+        ]
         views.forEach { self.contentView.addSubview($0) }
     }
     
@@ -95,9 +102,7 @@ class CartCollectionViewCell: UICollectionViewCell {
 
     @objc
     func plusButtonTapped() {
-        guard quantity < 100 else {
-            return
-        }
+        guard quantity < 100 else { return }
         
         print("Кнопка плюс нажата!")
         quantity += 1

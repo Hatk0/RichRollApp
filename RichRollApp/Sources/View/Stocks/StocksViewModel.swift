@@ -3,7 +3,7 @@ import Foundation
 protocol StocksViewModelProtocol {
     var numberOfStocks: Int { get }
     
-    func stock(at index: Int) -> Stocks?
+    func stockItem(atIndex index: Int) -> Stocks?
 }
 
 final class StocksViewModel: StocksViewModelProtocol {
@@ -13,7 +13,7 @@ final class StocksViewModel: StocksViewModelProtocol {
         stocks.count
     }
     
-    func stock(at index: Int) -> Stocks? {
+    func stockItem(atIndex index: Int) -> Stocks? {
         guard index >= 0 && index < stocks.count else { return nil }
         return stocks[index]
     }

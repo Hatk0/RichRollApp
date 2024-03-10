@@ -43,7 +43,13 @@ class DetailViewController: UIViewController {
     }
     
     private func setupHierarchy() {
-        let views = [imageView, loveButton, titleLabel, priceButton, descriptionLabel]
+        let views = [
+            imageView,
+            loveButton,
+            titleLabel,
+            priceButton,
+            descriptionLabel
+        ]
         views.forEach { view.addSubview($0) }
     }
     
@@ -77,7 +83,9 @@ class DetailViewController: UIViewController {
     // MARK: - Configuration
     
     func configuration() {
-        guard let catalogItem = viewModel.selectedCatalogItem else { return }
+        guard let catalogItem = viewModel.selectedCatalogItem else { 
+            return
+        }
             imageView.image = UIImage(named: catalogItem.image)
             titleLabel.text = catalogItem.title
             descriptionLabel.text = catalogItem.description
